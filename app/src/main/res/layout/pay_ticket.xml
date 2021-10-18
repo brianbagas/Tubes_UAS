@@ -1,7 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BFBFBF">
+    android:background="@drawable/order_ticket_background">
+
+    <TextView
+        android:id="@+id/tvNamaMovie"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="148dp"
+        android:text="Nama Movie"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLokasiBioskop"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Tempat Bioskop"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaMovie" />
+
+    <TextView
+        android:id="@+id/tvTanggalNonton"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="124dp"
+        android:text="Tanggal Menonton"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLokasiBioskop" />
+
+    <TextView
+        android:id="@+id/tvTanggal"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Tanggal"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggalNonton" />
+
+    <TextView
+        android:id="@+id/tvWaktuNonton"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Waktu Nonton"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
+
+    <TextView
+        android:id="@+id/tvWaktu"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Waktu"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWaktuNonton" />
+
+    <TextView
+        android:id="@+id/tvJenisTayangan"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Jenis Tayangan"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWaktu" />
+
+    <TextView
+        android:id="@+id/tvJenisTicket"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Jenis Ticket"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisTayangan" />
+
+    <TextView
+        android:id="@+id/tvJumlahTicket"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Jumlah Ticket"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisTicket" />
+
+    <TextView
+        android:id="@+id/tvBanyakTicket"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Banyak Ticket"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahTicket" />
+
+    <TextView
+        android:id="@+id/tvTotalHarga"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Total Harga"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBanyakTicket" />
+
+    <TextView
+        android:id="@+id/tvHarga"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Harga"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalHarga" />
+
+    <Button
+        android:id="@+id/btnPayNow"
+        android:layout_width="344dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="#1B1C51"
+        android:shadowColor="#000000"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="PAY NOW"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHarga"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnCancle"
+        android:layout_width="94dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#CF0707"
+        android:hint="CANCLE PAYMENT"
+        android:textColorHint="#FFFFFF"
+        android:textSize="6sp"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvNamaMovie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,7 @@
             android:id="@+id/tvContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="20dp"
             android:text="Dont have any account?"
             android:textColor="#16173F"
             android:translationX="-13dp"
@@ -54,24 +54,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.418"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
             app:layout_constraintVertical_bias="0.863" />
 
         <TextView
             android:id="@+id/tvClickLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="42dp"
             android:text="Register"
             android:textColor="#16173F"
             android:textStyle="bold"
             android:translationX="-13dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.02"
-            app:layout_constraintStart_toEndOf="@+id/tvContent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toEndOf="@+id/tvContent" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="141dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#1B1C51"
+            android:text="LOGIN"
+            app:cornerRadius="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvClickLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPassword"
-            app:layout_constraintVertical_bias="0.863" />
+            app:layout_constraintVertical_bias="0.007" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
