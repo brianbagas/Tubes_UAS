@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_page"
-    android:layout_width="412dp"
-    android:layout_height="823dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
     android:clipToOutline="true"
     android:background="@drawable/login_background">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="412dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="370dp"
-        android:background="@drawable/ic_loginregister_background">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
 
         <EditText
             android:id="@+id/etNama"
             android:layout_width="257dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="#16173F"
             android:hint="Nama"
@@ -32,7 +34,7 @@
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="257dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#16173F"
             android:hint="Email"
@@ -45,7 +47,7 @@
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="257dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#16173F"
             android:hint="Username"
@@ -58,7 +60,7 @@
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="257dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#16173F"
             android:hint="Password"
@@ -72,6 +74,7 @@
             android:layout_width="141dp"
             android:layout_height="50dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:backgroundTint="#1B1C51"
             android:text="DAFTAR"
             app:cornerRadius="40dp"
@@ -98,7 +101,7 @@
             android:id="@+id/tvClickLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
             android:layout_marginBottom="15dp"
             android:text="Login"
             android:textColor="#16173F"
@@ -109,7 +112,6 @@
             app:layout_constraintStart_toEndOf="@+id/tvContent"
             app:layout_constraintTop_toBottomOf="@+id/btnRegister"
             app:layout_constraintVertical_bias="0.644" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
