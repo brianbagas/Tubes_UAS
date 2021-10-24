@@ -43,7 +43,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Username"
                     android:inputType="text"
-                    android:text="@={login.username}" />
+                    android:text="@={login.username}"
+                    android:textColorHighlight="#1B1C51"
+                    android:textColorLink="#1B1C51" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

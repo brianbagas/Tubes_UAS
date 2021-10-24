@@ -13,7 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="420dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_loginregister_background">
 
