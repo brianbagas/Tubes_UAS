@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="NEAREST THEATRE"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:paddingTop="15dp"
         android:textAlignment="center"
         android:textColorHint="#1B1C51"
@@ -29,7 +29,7 @@
     <FrameLayout
         android:id="@+id/layoutRV"
         android:layout_width="412dp"
-        android:layout_height="595dp"
+        android:layout_height="550dp"
         android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

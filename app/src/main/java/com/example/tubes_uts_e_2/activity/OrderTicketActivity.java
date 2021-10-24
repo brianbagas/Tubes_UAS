@@ -30,6 +30,22 @@ public class OrderTicketActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         indexFilm = getIntent().getIntExtra("indexFilm", 0);
+
+        btnJadwal1 = findViewById(R.id.btnJadwal1);
+        btnJadwal2 = findViewById(R.id.btnJadwal2);
+        btnJadwal3 = findViewById(R.id.btnJadwal3);
+        btnJadwal4 = findViewById(R.id.btnJadwal4);
+        btnJadwal5 = findViewById(R.id.btnJadwal5);
+
+        btn2d1 = findViewById(R.id.btn2Dtime1);
+        btn2d2 = findViewById(R.id.btn2Dtime2);
+        btn2d3 = findViewById(R.id.btn2Dtime3);
+        btn2d4 = findViewById(R.id.btn2Dtime4);
+
+        btn3d1 = findViewById(R.id.btn3Dtime1);
+        btn3d2 = findViewById(R.id.btn3Dtime2);
+        btn3d3 = findViewById(R.id.btn3Dtime3);
+        btn3d4 = findViewById(R.id.btn3Dtime4);
         trailer = findViewById(R.id.trailer);
         tvJudulMovie = findViewById(R.id.tvJudulMovie);
         btnBack = findViewById(R.id.btnBack);
