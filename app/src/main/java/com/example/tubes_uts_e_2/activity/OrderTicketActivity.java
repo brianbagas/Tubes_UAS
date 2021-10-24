@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.model.Movie;
+import com.example.tubes_uts_e_2.model.Ticket;
 
 public class OrderTicketActivity extends AppCompatActivity {
 
@@ -30,6 +31,19 @@ public class OrderTicketActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         indexFilm = getIntent().getIntExtra("indexFilm", 0);
+        tvJudulMovie = findViewById(R.id.tvJudulMovie);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent homeActivity = new Intent(OrderTicketActivity.this, HomeActivity.class);
+                startActivity(homeActivity);
+                finish();
+            }
+        });
+
+        trailer.setImageResource(Movie.listofMovie[indexFilm].getGambar());
+        tvJudulMovie.setText(Movie.listofMovie[indexFilm].getJudul());
 
         btnJadwal1 = findViewById(R.id.btnJadwal1);
         btnJadwal2 = findViewById(R.id.btnJadwal2);
@@ -47,19 +61,97 @@ public class OrderTicketActivity extends AppCompatActivity {
         btn3d3 = findViewById(R.id.btn3Dtime3);
         btn3d4 = findViewById(R.id.btn3Dtime4);
         trailer = findViewById(R.id.trailer);
-        tvJudulMovie = findViewById(R.id.tvJudulMovie);
-        btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+
+        Ticket ticketTemp = new Ticket();
+        btnJadwal1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent homeActivity = new Intent(OrderTicketActivity.this, HomeActivity.class);
-                startActivity(homeActivity);
-                finish();
+                ticketTemp = setJadwal1("Senin, 01 November 2021");
             }
         });
 
-        trailer.setImageResource(Movie.listofMovie[indexFilm].getGambar());
-        tvJudulMovie.setText(Movie.listofMovie[indexFilm].getJudul());
+        btnJadwal2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = setJadwal2("Selasa, 02 November 2021");
+            }
+        });
 
+        btnJadwal3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = setJadwal3("Rabu, 03 November 2021");
+            }
+        });
+
+        btnJadwal4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = setJadwal4("Kamis, 04 November 2021");
+            }
+        });
+
+        btnJadwal5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = setJadwal5("Jumat, 05 November 2021");
+            }
+        });
+
+        btn2d1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set2dTime1("12.30");
+            }
+        });
+
+        btn2d2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set2dTime2("13.20");
+            }
+        });
+
+        btn2d3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set2dTime3("16.10");
+            }
+        });
+
+        btn2d4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set2dTime4("19.15");
+            }
+        });
+
+        btn3d1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set3dTime1("12.30");
+            }
+        });
+
+        btn3d2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set3dTime2("13.20");
+            }
+        });
+
+        btn3d3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set3dTime3("16.10");
+            }
+        });
+
+        btn3d4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ticketTemp = set3dTime4("19.15");
+            }
+        });
     }
 }
