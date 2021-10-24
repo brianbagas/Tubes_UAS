@@ -75,15 +75,15 @@ public class LoginActivity extends AppCompatActivity {
                 passInput = activityLoginBinding.etPassword.getEditText().getText().toString().trim();
                 loginInfo = getLoginInfo(userInput);
 
-                if( userInput.equals(loginInfo.get(0).getUsername()) && passInput.equals(loginInfo.get(0).getPassword()) ) {
+                if(loginInfo.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Username tidak ditemukan!", Toast.LENGTH_SHORT).show();
+                } else if( userInput.equals(loginInfo.get(0).getUsername()) && passInput.equals(loginInfo.get(0).getPassword()) ) {
                     //set userPreferences
                     userPreferences.setLogin(userInput,passInput);
                     checkLogin();
                 } else {
                     Toast.makeText(LoginActivity.this, "Username atau Password Salah!", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                Toast.makeText(LoginActivity.this, "Nasi goreng", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -106,8 +106,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
-
     private List<User> getLoginInfo(String username) {
 
         List<User> userList = DatabaseUser.getInstance(LoginActivity.this)
@@ -117,4 +115,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return userList;
     }
+
+
 }

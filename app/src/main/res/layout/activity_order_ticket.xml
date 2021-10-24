@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_page"
-    android:layout_width="412dp"
-    android:layout_height="823dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
     android:clipToOutline="true">
@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/trailer"
         android:layout_width="match_parent"
-        android:layout_height="256dp"/>
+        android:layout_height="256dp" />
 
     <ImageView
         android:id="@+id/btnBack"
@@ -185,12 +185,12 @@
         android:layout_width="55dp"
         android:layout_height="54dp"
         android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="1dp"
-        android:layout_marginStart="10dp"
-        app:cardCornerRadius="10dp"
-        android:layout_toEndOf="@+id/btnJadwal2">
+        android:layout_toEndOf="@+id/btnJadwal2"
+        app:cardCornerRadius="10dp">
 
         <TextView
             android:id="@+id/tvDate3"
@@ -223,10 +223,10 @@
         android:layout_width="55dp"
         android:layout_height="54dp"
         android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="1dp"
-        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/btnJadwal3"
         app:cardCornerRadius="10dp">
 
@@ -261,10 +261,10 @@
         android:layout_width="55dp"
         android:layout_height="54dp"
         android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="1dp"
-        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/btnJadwal4"
         app:cardCornerRadius="10dp">
 

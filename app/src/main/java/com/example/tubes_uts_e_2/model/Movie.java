@@ -28,7 +28,7 @@ public class Movie {
     }
 
     public static Movie[] listofMovie={
-            new Movie("spiderman", R.drawable.spider),
+            new Movie("Spiderman", R.drawable.spider),
             new Movie("One Piece", R.drawable.onepiece)
     };
 }

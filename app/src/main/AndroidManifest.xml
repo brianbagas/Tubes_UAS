@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TUBES_UTS_E_2">
         <activity
+            android:name=".activity.ProfilActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.PayTicketActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.OrderTicketActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.HomeActivity"
             android:exported="true" />
         <activity

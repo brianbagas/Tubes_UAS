@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.514" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/btnProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_profil"

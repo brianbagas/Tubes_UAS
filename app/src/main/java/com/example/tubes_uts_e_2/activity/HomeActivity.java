@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.fragment.FirstFragment;
@@ -16,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
     BottomNavigationView bottomNavigationView;
+    ImageView btnProfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,14 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         getSupportActionBar().hide();
         bottomNavigationView = findViewById(R.id.bottomnavigationbar);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        btnProfil = findViewById(R.id.btnProfil);
+        btnProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profilActivity = new Intent(HomeActivity.this, ProfilActivity.class);
+                startActivity(profilActivity);
+            }
+        });
     }
 
     @Override

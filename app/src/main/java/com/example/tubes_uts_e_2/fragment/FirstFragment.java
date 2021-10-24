@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.adapter.HomeAdapter;
@@ -23,7 +24,6 @@ import com.mapbox.mapboxsdk.maps.MapView;
  * create an instance of this fragment.
  */
 public class FirstFragment extends Fragment {
-    private MapView mapView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -78,5 +78,7 @@ public class FirstFragment extends Fragment {
         rvMovie.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         rvMovie.setAdapter(new HomeAdapter(Movie.listofMovie));
+
+
     }
 }

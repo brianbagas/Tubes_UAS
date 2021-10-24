@@ -41,6 +41,10 @@ public class UserPreferences {
         return new User(username, password);
     }
 
+//    public String getUsername() {
+//        return sharedPreferences.getString(KEY_USERNAME, null);
+//    }
+
     public boolean checkLogin() {
         //mengembalikan nilai is_login
         return sharedPreferences.getBoolean(IS_LOGIN, false);

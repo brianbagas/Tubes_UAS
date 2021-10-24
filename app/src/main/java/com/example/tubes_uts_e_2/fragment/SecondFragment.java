@@ -13,11 +13,11 @@ import com.example.tubes_uts_e_2.R;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
-import com.mapbox.mapboxsdk.constants.Style;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Style;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,11 +80,11 @@ public class SecondFragment extends Fragment {
 
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(MapboxMap mapboxMap) {
+            public void onMapReady(@NonNull MapboxMap mapboxMap) {
                 mapboxMap.setStyle(Style.MAPBOX_STREETS);
                 mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener() {
                     @Override
-                    public void onMapClick(@NonNull LatLng point) {
+                    public boolean onMapClick(@NonNull LatLng point) {
                         MarkerOptions markerOptions =  new MarkerOptions();
                         markerOptions.position(point);
                         mapboxMap.clear();
@@ -92,9 +92,12 @@ public class SecondFragment extends Fragment {
                                 point,10
                         ));
                         mapboxMap.addMarker(markerOptions);
+                        return false;
                     }
+
                 });
             }
+
         });
 
         return view;

@@ -1,5 +1,9 @@
 package com.example.tubes_uts_e_2.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.activity.HomeActivity;
+import com.example.tubes_uts_e_2.activity.LoginActivity;
+import com.example.tubes_uts_e_2.activity.OrderTicketActivity;
 import com.example.tubes_uts_e_2.model.Movie;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
@@ -37,11 +44,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull viewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.gambar.setImageResource(listMovie[position].getGambar());
         holder.judul.setText(listMovie[position].getJudul());
 
-
+        holder.gambar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, OrderTicketActivity.class);
+                intent.putExtra("indexFilm", position);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
