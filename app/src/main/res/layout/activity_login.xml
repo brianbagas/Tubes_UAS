@@ -20,7 +20,7 @@
         android:background="@drawable/login_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="412dp"
+            android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="370dp"
             android:background="@drawable/ic_loginregister_background">

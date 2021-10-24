@@ -1,12 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login_page"
     android:layout_width="412dp"
     android:layout_height="823dp"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
     android:clipToOutline="true"
-    android:background="@drawable/profil_background">
+    android:background="@drawable/background_profil">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="245dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="306dp"
+        android:layout_marginEnd="87dp"
+        android:background="@drawable/rectangle_textview_profil"
+        android:paddingTop="8dp"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="245dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="87dp"
+        android:background="@drawable/rectangle_textview_profil"
+        android:paddingTop="8dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="21dp"
+        android:background="@drawable/ic_baseline_edit_24" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="21dp"
+        android:background="@drawable/ic_baseline_edit_24" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="87dp"
+        android:backgroundTint="@color/black"
+        android:text="LOG OUT"
+        android:textAlignment="center"
+        app:cornerRadius="20dp" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btnLogout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="87dp"
+        android:backgroundTint="#922B2B"
+        android:text="DELETE ACCOUNT"
+        android:textAlignment="center"
+        app:cornerRadius="20dp" />
 </RelativeLayout>
