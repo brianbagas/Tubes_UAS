@@ -1,23 +1,18 @@
-package com.example.home;
+package com.example.tubes_uts_e_2.fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import entity.Movie;
-import entity.tiket;
+import com.example.tubes_uts_e_2.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SecondFragment#newInstance} factory method to
+ * Use the {@link FirstFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class SecondFragment extends Fragment {
@@ -41,7 +36,7 @@ public class SecondFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SecondFragment.
+     * @return A new instance of fragment FirstFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static SecondFragment newInstance(String param1, String param2) {
@@ -67,13 +62,5 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_second, container, false);
-    }
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        RecyclerView rvDosen = view.findViewById(R.id.tiketlist);
-        rvDosen.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        rvDosen.setAdapter(new ticketAdapter(tiket.listoftiket));
     }
 }

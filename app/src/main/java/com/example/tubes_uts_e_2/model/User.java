@@ -55,6 +55,7 @@ public class User extends BaseObservable {
 
     public void setId(int id) {
         this.id = id;
+        notifyPropertyChanged(BR.id);
     }
 
     @Bindable
@@ -64,7 +65,7 @@ public class User extends BaseObservable {
 
     public void setNama(String nama) {
         this.nama = nama;
-//        notifyPropertyChanged(BR.);
+        notifyPropertyChanged(BR.nama);
     }
 
     @Bindable
@@ -74,6 +75,7 @@ public class User extends BaseObservable {
 
     public void setEmail(String email) {
         this.email = email;
+        notifyPropertyChanged(BR.email);
     }
 
     @Bindable
@@ -103,5 +105,6 @@ public class User extends BaseObservable {
 
     public void setImgURL(String imgURL) {
         this.imgURL = imgURL;
+        notifyPropertyChanged(BR.imgURL);
     }
 }

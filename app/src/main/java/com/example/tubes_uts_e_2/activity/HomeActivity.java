@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
         changeFragment(new FirstFragment());
         getSupportActionBar().hide();
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.bottomnavigationbar);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 

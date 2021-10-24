@@ -40,24 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         user = new User();
         activityLoginBinding.setLogin(user);
         activityLoginBinding.setActivity(this);
-        activityLoginBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(validateForm()) {
-                    userInput = activityLoginBinding.etUsername.getEditText().getText().toString().trim();
-                    passInput = activityLoginBinding.etPassword.getEditText().getText().toString().trim();
-                    loginInfo = getLoginInfo(userInput);
 
-                    if( userInput.equals(loginInfo.get(0).getUsername()) && passInput.equals(loginInfo.get(0).getPassword()) ) {
-                        //set userPreferences
-                        userPreferences.setLogin(userInput,passInput);
-                        checkLogin();
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Username atau Password Salah!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+        //
+        userPreferences = new UserPreferences(this);
+        checkLogin();
 
         activityLoginBinding.tvClickLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +51,42 @@ public class LoginActivity extends AppCompatActivity {
                 Intent registerActivity = new Intent(LoginActivity.this, RegisterActivity.class);
                 registerActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(registerActivity);
+                finish();
             }
         });
-
     }
+
+//    public View.OnClickListener register = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//
+//            Intent registerActivity = new Intent(LoginActivity.this, RegisterActivity.class);
+//            registerActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(registerActivity);
+//            finish();
+//        }
+//    };
+
+    public View.OnClickListener btnLogin = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(validateForm()) {
+                userInput = activityLoginBinding.etUsername.getEditText().getText().toString().trim();
+                passInput = activityLoginBinding.etPassword.getEditText().getText().toString().trim();
+                loginInfo = getLoginInfo(userInput);
+
+                if( userInput.equals(loginInfo.get(0).getUsername()) && passInput.equals(loginInfo.get(0).getPassword()) ) {
+                    //set userPreferences
+                    userPreferences.setLogin(userInput,passInput);
+                    checkLogin();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Username atau Password Salah!", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(LoginActivity.this, "Nasi goreng", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 
     private boolean validateForm() {
         //check empty

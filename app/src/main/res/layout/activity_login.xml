@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Username"
                     android:inputType="text"
-                    android:value="@={login.username}" />
+                    android:text="@={login.username}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:inputType="text"
-                    android:value="@={login.password}" />
+                    android:text="@={login.password}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -103,6 +103,7 @@
                 android:layout_marginTop="40dp"
                 android:backgroundTint="#1B1C51"
                 android:text="LOGIN"
+                android:onClick="@{activity.btnLogin}"
                 app:cornerRadius="40dp"
                 app:layout_constraintBottom_toTopOf="@+id/tvClickLogin"
                 app:layout_constraintEnd_toEndOf="parent"

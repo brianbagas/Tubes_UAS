@@ -4,11 +4,16 @@
 
     <item
         android:title="Home"
-        android:id="@+id/first_menu"/>
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/first_menu"
+        />
     <item
         android:title="Maps"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:iconTint="@color/white"
         android:id="@+id/second_menu"/>
     <item
         android:title="Ticket"
+        android:icon="@drawable/ic_baseline_airplane_ticket_24"
         android:id="@+id/third_menu"/>
 </menu>
