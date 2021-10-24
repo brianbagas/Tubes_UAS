@@ -12,9 +12,8 @@
 
     <ImageView
         android:id="@+id/trailer"
-        android:layout_width="492dp"
-        android:layout_height="256dp"
-        android:background="@color/black" />
+        android:layout_width="match_parent"
+        android:layout_height="256dp"/>
 
     <ImageView
         android:id="@+id/btnBack"
@@ -28,7 +27,7 @@
 
     <ImageView
         android:id="@+id/btnPlay"
-        android:layout_width="36dp"
+        android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -51,7 +50,8 @@
         android:background="@drawable/background_cardview_info" />
 
     <TextView
-        android:layout_width="193dp"
+        android:id="@+id/tvJudulMovie"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tvInfoMovie"
         android:layout_alignTop="@+id/tvInfoMovie"
@@ -93,7 +93,7 @@
 
     <TextView
         android:id="@+id/tvTanggalNonton"
-        android:layout_width="108dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvInfoMovie"
         android:layout_alignParentStart="true"
@@ -121,7 +121,7 @@
 
     <TextView
         android:id="@+id/tvJamNonton"
-        android:layout_width="93dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layoutRV"
         android:layout_alignParentStart="true"
@@ -135,7 +135,7 @@
 
     <TextView
         android:id="@+id/tv2D"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider2"
         android:layout_alignParentStart="true"
@@ -238,7 +238,7 @@
 
     <TextView
         android:id="@+id/tv3D"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider"
         android:layout_alignParentStart="true"
@@ -334,10 +334,21 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/tvInfoMovie"
         android:layout_alignBottom="@+id/tvInfoMovie"
-        android:layout_marginEnd="142dp"
-        android:layout_marginBottom="137dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="138dp"
         android:numStars="5"
         android:rating="4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvJudulMovie"
+        android:layout_alignStart="@+id/tvInfoMovie"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="9dp"
+        android:layout_toStartOf="@+id/ratingBar"
+        android:hint="5.0" />
 
     <View
         android:id="@+id/divider"
