@@ -104,26 +104,201 @@
         android:textColorHint="#000000"
         android:textSize="12sp" />
 
-    <FrameLayout
-        android:id="@+id/layoutRV"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnJadwal1"
+        android:layout_width="55dp"
+        android:layout_height="54dp"
         android:layout_below="@+id/tvTanggalNonton"
-        android:layout_marginTop="9dp"
-        android:layout_marginStart="40dp">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="1dp"
+        app:cardCornerRadius="10dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/jadwal_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/rv_jadwal"/>
-    </FrameLayout>
+        <TextView
+            android:id="@+id/tvDate1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:hint="01 Nov"
+            android:textAlignment="center"
+            android:textColorHint="#16173F"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDay1"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="18dp"
+            android:hint="SEN"
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnJadwal2"
+        android:layout_width="55dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@+id/btnJadwal1"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/tvDate2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:hint="02 Nov"
+            android:textAlignment="center"
+            android:textColorHint="#16173F"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDay2"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="18dp"
+            android:hint="SEL"
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnJadwal3"
+        android:layout_width="55dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_toEndOf="@+id/btnJadwal2">
+
+        <TextView
+            android:id="@+id/tvDate3"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:hint="03 Nov"
+            android:textAlignment="center"
+            android:textColorHint="#16173F"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDay3"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="18dp"
+            android:hint="RAB"
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnJadwal4"
+        android:layout_width="55dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/btnJadwal3"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/tvDate4"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:hint="04 Nov"
+            android:textAlignment="center"
+            android:textColorHint="#16173F"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDay4"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="18dp"
+            android:hint="KAM"
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnJadwal5"
+        android:layout_width="55dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/tvTanggalNonton"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/btnJadwal4"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/tvDate5"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:hint="05 Nov"
+            android:textAlignment="center"
+            android:textColorHint="#16173F"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDay5"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="18dp"
+            android:hint="JUM"
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tvJamNonton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutRV"
+        android:layout_below="@+id/btnJadwal1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="40dp"
