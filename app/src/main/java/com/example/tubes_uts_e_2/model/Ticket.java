@@ -9,26 +9,27 @@ import androidx.room.PrimaryKey;
 public class Ticket extends BaseObservable {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
-    @ColumnInfo(name = "title")
-    private String title;
-    @ColumnInfo(name = "judulTicket")
-    public String judulTicket;
+    @ColumnInfo(name = "user")
+    private String user;
+    @ColumnInfo(name = "judul")
+    public String judul;
     @ColumnInfo(name = "tempat")
     public String tempat;
     @ColumnInfo(name = "tglnonton")
-    public String tglnonton;
+    public String tanggal;
     @ColumnInfo(name = "waktu")
-    public int waktu;
+    public String waktu;
     @ColumnInfo(name = "jenis")
     public String jenis;
     @ColumnInfo(name = "total")
     public int total;
 
-    public Ticket(String judulTicket, String tempat, String tglnonton, int waktu, String jenis, int total) {
-        this.judulTicket = judulTicket;
+    public Ticket(int id, String user, String judul, String tempat, String tanggal, String waktu, String jenis, int total) {
+        this.id = id;
+        this.user = user;
+        this.judul = judul;
         this.tempat = tempat;
-        this.tglnonton = tglnonton;
+        this.tanggal = tanggal;
         this.waktu = waktu;
         this.jenis = jenis;
         this.total = total;
@@ -42,20 +43,20 @@ public class Ticket extends BaseObservable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getUser() {
+        return user;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getJudul() {
-        return judulTicket;
+        return judul;
     }
 
-    public void setJudul(String judulTicket) {
-        this.judulTicket = judulTicket;
+    public void setJudul(String judul) {
+        this.judul = judul;
     }
 
     public String getTempat() {
@@ -66,19 +67,19 @@ public class Ticket extends BaseObservable {
         this.tempat = tempat;
     }
 
-    public String getTglnonton() {
-        return tglnonton;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public void setTglnonton(String tglnonton) {
-        this.tglnonton = tglnonton;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
-    public int getWaktu() {
+    public String getWaktu() {
         return waktu;
     }
 
-    public void setWaktu(int waktu) {
+    public void setWaktu(String waktu) {
         this.waktu = waktu;
     }
 
@@ -97,8 +98,4 @@ public class Ticket extends BaseObservable {
     public void setTotal(int total) {
         this.total = total;
     }
-
-    public static Ticket[] listoftiket={
-            new Ticket("Spiderman","Amplaz","1-10-2021",2020,"2D",1),
-    };
 }

@@ -1,65 +1,78 @@
 package com.example.tubes_uts_e_2.adapter;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.model.Ticket;
+import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
 
-public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.viewHolder>{
+import java.util.List;
 
-    private final Ticket[] listTiket;
+public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>{
 
-    public TicketAdapter(Ticket[] listTiket) {
-        this.listTiket = listTiket;
-    }
+    private List<Ticket> ticketList;
+    private Context context;
 
 
-    public class viewHolder extends RecyclerView.ViewHolder {
-        TextView judulTicket;
-        TextView tempat;
-        TextView tglnonton;
-        TextView waktu;
-        TextView jenis;
-        TextView total;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
 
-        public viewHolder(@NonNull View itemView){
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            judulTicket = itemView.findViewById(R.id.inputJudul);
-            tempat = itemView.findViewById(R.id.tempat);
-            tglnonton = itemView.findViewById(R.id.Tanggal);
-            waktu = itemView.findViewById(R.id.waktu);
-            jenis = itemView.findViewById(R.id.jenisTiket);
-            total = itemView.findViewById(R.id.total);
+            tvUserTicket = itemView.findViewById(R.id.tvUserTicket);
+            tvJudul = itemView.findViewById(R.id.inputJudul);
+            tvTempat = itemView.findViewById(R.id.tempat);
+            tvTanggal = itemView.findViewById(R.id.Tanggal);
+            tvWaktu = itemView.findViewById(R.id.waktu);
+            tvJenisTiket = itemView.findViewById(R.id.jenisTiket);
+            tvTotal = itemView.findViewById(R.id.total);
         }
     }
+
+    public TicketAdapter(List<Ticket> ticketList, Context context) {
+        this.ticketList = ticketList;
+        this.context = context;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
-    public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new viewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_ticket,parent,false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //init view
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_ticket, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        holder.judulTicket.setText(listTiket[position].getJudul());
-        holder.tempat.setText(listTiket[position].getTempat());
-        holder.tglnonton.setText(listTiket[position].getTglnonton());
-        holder.waktu.setText(listTiket[position].getWaktu()+"");
-        holder.jenis.setText(listTiket[position].getJenis());
-        holder.total.setText(listTiket[position].getTotal()+"");
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Ticket ticket = ticketList.get(position);
+        holder.tvUserTicket.setText(UserPreferences.KEY_USERNAME);
+        holder.tvJudul.setText(ticket.getJudul());
+        holder.tvTempat.setText(ticket.getTempat());
+        holder.tvTanggal.setText(ticket.getTanggal());
+        holder.tvWaktu.setText(ticket.getWaktu());
+        holder.tvJenisTiket.setText(ticket.getJenis());
+        holder.tvTotal.setText(ticket.getTotal());
     }
-
 
     @Override
     public int getItemCount() {
-        return listTiket.length;
+        return ticketList.size();
     }
-
-
 }
 

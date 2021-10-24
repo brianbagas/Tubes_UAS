@@ -1,5 +1,6 @@
 package com.example.tubes_uts_e_2.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,11 @@ import android.view.ViewGroup;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.adapter.TicketAdapter;
+import com.example.tubes_uts_e_2.db.DatabaseTicket;
 import com.example.tubes_uts_e_2.model.Ticket;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +27,10 @@ import com.example.tubes_uts_e_2.model.Ticket;
  * create an instance of this fragment.
  */
 public class ThirdFragment extends Fragment {
+
+    private RecyclerView rv_ticket;
+    private List<Ticket> ticketList;
+    private TicketAdapter ticketAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,10 +80,37 @@ public class ThirdFragment extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        rv_ticket = getView().findViewById(R.id.ticket_list);
 
-        RecyclerView rvTiket = view.findViewById(R.id.ticket_list);
-        rvTiket.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        rvTiket.setAdapter(new TicketAdapter(Ticket.listoftiket));
+
+
+        getTickets();
+        ticketList = new ArrayList<>();
+    }
+
+    private void getTickets() {
+        class GetTickets extends AsyncTask<Void, Void, List<Ticket>> {
+
+            @Override
+            protected List<Ticket> doInBackground(Void... voids) {
+                List<Ticket> todoList = DatabaseTicket.getInstance(getActivity())
+                        .getDatabase()
+                        .ticketDao()
+                        .getAll();
+
+                return todoList;
+            }
+
+            @Override
+            protected void onPostExecute(List<Ticket> ticketList) {
+                super.onPostExecute(ticketList);
+                ticketAdapter = new TicketAdapter(ticketList, getActivity());
+                rv_ticket.setAdapter(ticketAdapter);
+            }
+        }
+        GetTickets get = new GetTickets();
+        get.execute();
     }
 }
