@@ -2,13 +2,19 @@ package com.example.tubes_uts_e_2.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.adapter.TicketAdapter;
+import com.example.tubes_uts_e_2.model.Ticket;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +68,13 @@ public class ThirdFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_third, container, false);
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView rvTiket = view.findViewById(R.id.ticket_list);
+        rvTiket.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        rvTiket.setAdapter(new TicketAdapter(Ticket.listoftiket));
     }
 }

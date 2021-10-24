@@ -2,13 +2,20 @@ package com.example.tubes_uts_e_2.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.adapter.HomeAdapter;
+import com.example.tubes_uts_e_2.model.Movie;
+import com.mapbox.mapboxsdk.maps.MapView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +23,7 @@ import com.example.tubes_uts_e_2.R;
  * create an instance of this fragment.
  */
 public class FirstFragment extends Fragment {
-
+    private MapView mapView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,5 +69,14 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false);
+    }
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView rvMovie = view.findViewById(R.id.movie_list);
+        rvMovie.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        rvMovie.setAdapter(new HomeAdapter(Movie.listofMovie));
     }
 }
