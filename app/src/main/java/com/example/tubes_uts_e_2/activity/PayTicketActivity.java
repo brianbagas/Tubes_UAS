@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.model.Movie;
@@ -18,7 +19,7 @@ import com.google.gson.Gson;
 public class PayTicketActivity extends AppCompatActivity {
     private TextView tvNamaMovie, tvLokasiBioskop, tvTanggal, tvWaktu, tvJenisTicket, tvJumlah, tvHarga;
     ImageView poster;
-    Button btnCancle;
+    Button btnCancle, btnPayNow;
     int indexFilm;
     Ticket ticket;
 
@@ -40,7 +41,8 @@ public class PayTicketActivity extends AppCompatActivity {
         tvJenisTicket = findViewById(R.id.tvJenisTicket);
         tvJumlah = findViewById(R.id.tvBanyakTicket);
         tvHarga = findViewById(R.id.tvHarga);
-        btnCancle = findViewById(R.id.btnCancel);
+        btnCancle = findViewById(R.id.btnCancle);
+        btnPayNow = findViewById(R.id.btnPayNow);
 
         //mengambil data dari intent
         String strTicket = getIntent().getStringExtra("objTicket");
@@ -75,6 +77,18 @@ public class PayTicketActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnPayNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(PayTicketActivity.this, "Pembayaran berhasil!", Toast.LENGTH_SHORT).show();
+
+                Intent homeActivity = new Intent(PayTicketActivity.this, HomeActivity.class);
+                startActivity(homeActivity);
+                finish();
+            }
+        });
+
 
     }
 }
