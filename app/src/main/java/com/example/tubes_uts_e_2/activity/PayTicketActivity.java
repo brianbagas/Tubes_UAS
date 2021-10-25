@@ -23,6 +23,7 @@ public class PayTicketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay_ticket);
 
         //buat poster
+        indexFilm = getIntent().getIntExtra("indexFilm", 0);
         poster = findViewById(R.id.ivOrderMovie);
         poster.setImageResource(Movie.listofMovie[indexFilm].getGambar());
 
