@@ -32,9 +32,9 @@
         android:layout_marginStart="29dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="41dp"
-        android:orientation="vertical"
+        android:layout_toEndOf="@+id/tvUserTicket"
         android:gravity="center_vertical"
-        android:layout_toEndOf="@+id/tvUserTicket">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/position1"
@@ -155,7 +155,7 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/total"
+                android:id="@+id/totalTicket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Total"

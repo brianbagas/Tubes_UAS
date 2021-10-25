@@ -80,11 +80,8 @@ public class ThirdFragment extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rv_ticket = getView().findViewById(R.id.ticket_list);
-
+        rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
 
         getTickets();
         ticketList = new ArrayList<>();
@@ -95,12 +92,12 @@ public class ThirdFragment extends Fragment {
 
             @Override
             protected List<Ticket> doInBackground(Void... voids) {
-                List<Ticket> todoList = DatabaseTicket.getInstance(getActivity())
+                List<Ticket> ticketList = DatabaseTicket.getInstance(getActivity())
                         .getDatabase()
                         .ticketDao()
                         .getAll();
 
-                return todoList;
+                return ticketList;
             }
 
             @Override

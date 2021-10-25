@@ -47,7 +47,7 @@ public class PayTicketActivity extends AppCompatActivity {
         tvTanggal.setText(ticket.getTanggal());
         tvWaktu.setText(ticket.getWaktu());
         tvJenisTicket.setText(ticket.getJenis());
-        tvJumlah.setText(ticket.getTotal());
+        tvJumlah.setText(String.valueOf(ticket.getTotal()));
 
         if(ticket.getJenis().equals("2D")){
             tvHarga.setText("Rp.40.000");

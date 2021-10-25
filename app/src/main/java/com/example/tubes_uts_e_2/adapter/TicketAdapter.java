@@ -35,6 +35,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     private List<Ticket> ticketList;
     private Context context;
 
+    private UserPreferences userPreferences;
+    private User user;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
@@ -48,7 +50,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             tvTanggal = itemView.findViewById(R.id.Tanggal);
             tvWaktu = itemView.findViewById(R.id.waktu);
             tvJenisTiket = itemView.findViewById(R.id.jenisTiket);
-            tvTotal = itemView.findViewById(R.id.total);
+            tvTotal = itemView.findViewById(R.id.totalTicket);
             rv_ticket_item = itemView.findViewById(R.id.rv_ticket_item);
         }
     }
@@ -70,13 +72,13 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Ticket ticket = ticketList.get(position);
-        holder.tvUserTicket.setText(UserPreferences.KEY_USERNAME);
+        holder.tvUserTicket.setText(ticket.getUser());
         holder.tvJudul.setText(ticket.getJudul());
         holder.tvTempat.setText(ticket.getTempat());
         holder.tvTanggal.setText(ticket.getTanggal());
         holder.tvWaktu.setText(ticket.getWaktu());
         holder.tvJenisTiket.setText(ticket.getJenis());
-        holder.tvTotal.setText(ticket.getTotal());
+        holder.tvTotal.setText(String.valueOf(ticket.getTotal()));
 
         holder.rv_ticket_item.setOnClickListener(new View.OnClickListener() {
             @Override

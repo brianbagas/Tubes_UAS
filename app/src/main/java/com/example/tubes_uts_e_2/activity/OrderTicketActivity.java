@@ -13,10 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.db.DatabaseTicket;
 import com.example.tubes_uts_e_2.db.DatabaseUser;
 import com.example.tubes_uts_e_2.model.Movie;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
 
 public class OrderTicketActivity extends AppCompatActivity {
 
@@ -30,11 +32,17 @@ public class OrderTicketActivity extends AppCompatActivity {
     Button btn3d1, btn3d2, btn3d3, btn3d4;
     Button btnOrderNow;
 
+    UserPreferences userPreferences;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_ticket);
         getSupportActionBar().hide();
+
+        userPreferences = new UserPreferences(this);
+        user = userPreferences.getUserLogin();
 
         indexFilm = getIntent().getIntExtra("indexFilm", 0);
         tvJudulMovie = findViewById(R.id.tvJudulMovie);
@@ -56,6 +64,9 @@ public class OrderTicketActivity extends AppCompatActivity {
 
         findViewBtn();
         setOnclickBtn();
+        ticketTemp.setJudul(Movie.listofMovie[indexFilm].getJudul());
+        ticketTemp.setUser(user.getUsername());
+        ticketTemp.setTempat("Yogyakarta");
         ticketTemp.setTanggal("Senin, 01 November 2021");
         ticketTemp.setWaktu("12.30");
         ticketTemp.setJenis("2D");
@@ -201,7 +212,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... voids) {
 
-                DatabaseUser.getInstance(OrderTicketActivity.this)
+                DatabaseTicket.getInstance(OrderTicketActivity.this)
                         .getDatabase()
                         .ticketDao()
                         .insertTicket(ticket);

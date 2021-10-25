@@ -76,11 +76,29 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ImageView yourLoc;
+
         RecyclerView rvMovie = view.findViewById(R.id.movie_list);
         rvMovie.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         rvMovie.setAdapter(new HomeAdapter(Movie.listofMovie));
 
+        yourLoc = getView().findViewById(R.id.yourLoc);
+        yourLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeFragment(new SecondFragment());
+            }
+        });
 
+
+    }
+
+    //  Method untuk mengubah fragment
+    public void changeFragment(Fragment fragment) {
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_home, fragment)
+                .commit();
     }
 }
