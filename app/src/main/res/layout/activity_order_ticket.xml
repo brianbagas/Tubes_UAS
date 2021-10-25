@@ -27,13 +27,13 @@
     <ImageView
         android:id="@+id/btnPlay"
         android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
+        android:layout_Top="@id/layout1"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="187dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="187dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="194dp"
         android:background="@drawable/ic_baseline_play_circle_filled_24" />
 
     <RelativeLayout
@@ -41,7 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnPlay"
-        android:layout_marginTop="30dp">
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp">
 
         <ImageView
             android:id="@+id/tvInfoMovie"
@@ -68,14 +69,14 @@
             android:textColor="#000000" />
 
         <TextView
+            android:id="@+id/tvSinposis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
             android:layout_alignStart="@+id/tvInfoMovie"
             android:layout_alignTop="@+id/tvInfoMovie"
-            android:layout_alignEnd="@+id/tvInfoMovie"
             android:layout_marginStart="32dp"
             android:layout_marginTop="105dp"
-            android:layout_marginEnd="280dp"
             android:hint="Sinopsis"
             android:textAlignment="viewStart"
             android:textColorHint="#000000"
@@ -83,12 +84,13 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSinposis"
             android:layout_alignStart="@+id/tvInfoMovie"
             android:layout_alignTop="@+id/tvInfoMovie"
             android:layout_alignEnd="@+id/tvInfoMovie"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="125dp"
             android:layout_marginEnd="31dp"
             android:hint="Isi Sinopsis serta detail movie"
             android:textAlignment="viewStart"
@@ -111,12 +113,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvJudulMovie"
-            android:layout_alignStart="@+id/tvInfoMovie"
-            android:layout_marginStart="128dp"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="9dp"
             android:layout_toStartOf="@+id/ratingBar"
-            android:hint="5.0" />
+            android:hint="5.0"
+            android:textAlignment="viewEnd" />
     </RelativeLayout>
 
 
@@ -124,17 +125,16 @@
         android:id="@+id/layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/layout1">
+        android:layout_below="@+id/layout1"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/tvTanggalNonton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="264dp"
+            android:layout_centerHorizontal="true"
             android:hint="Tanggal Nonton"
             android:textColorHint="#000000"
             android:textSize="12sp" />
@@ -145,20 +145,17 @@
             android:layout_height="54dp"
             android:layout_below="@+id/tvTanggalNonton"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="1dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="1dp"
             app:cardCornerRadius="10dp">
 
             <TextView
                 android:id="@+id/tvDate1"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="18dp"
                 android:hint="01 Nov"
                 android:textAlignment="center"
                 android:textColorHint="#16173F"
@@ -166,12 +163,10 @@
 
             <TextView
                 android:id="@+id/tvDay1"
-                android:layout_width="30dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginEnd="18dp"
                 android:hint="SEN"
                 android:textAlignment="center"
                 android:textColorHint="#000" />
@@ -191,12 +186,10 @@
 
             <TextView
                 android:id="@+id/tvDate2"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="18dp"
                 android:hint="02 Nov"
                 android:textAlignment="center"
                 android:textColorHint="#16173F"
@@ -204,12 +197,10 @@
 
             <TextView
                 android:id="@+id/tvDay2"
-                android:layout_width="30dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginEnd="18dp"
                 android:hint="SEL"
                 android:textAlignment="center"
                 android:textColorHint="#000" />
@@ -229,12 +220,10 @@
 
             <TextView
                 android:id="@+id/tvDate3"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="18dp"
                 android:hint="03 Nov"
                 android:textAlignment="center"
                 android:textColorHint="#16173F"
@@ -242,12 +231,10 @@
 
             <TextView
                 android:id="@+id/tvDay3"
-                android:layout_width="30dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginEnd="18dp"
                 android:hint="RAB"
                 android:textAlignment="center"
                 android:textColorHint="#000" />
@@ -267,12 +254,10 @@
 
             <TextView
                 android:id="@+id/tvDate4"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="18dp"
                 android:hint="04 Nov"
                 android:textAlignment="center"
                 android:textColorHint="#16173F"
@@ -280,12 +265,10 @@
 
             <TextView
                 android:id="@+id/tvDay4"
-                android:layout_width="35dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginEnd="18dp"
                 android:hint="KAM"
                 android:textAlignment="center"
                 android:textColorHint="#000" />
@@ -297,20 +280,18 @@
             android:layout_height="54dp"
             android:layout_below="@+id/tvTanggalNonton"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="2dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
             android:layout_toEndOf="@+id/btnJadwal4"
             app:cardCornerRadius="10dp">
 
             <TextView
                 android:id="@+id/tvDate5"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="18dp"
                 android:hint="05 Nov"
                 android:textAlignment="center"
                 android:textColorHint="#16173F"
@@ -318,12 +299,10 @@
 
             <TextView
                 android:id="@+id/tvDay5"
-                android:layout_width="30dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginEnd="18dp"
                 android:hint="JUM"
                 android:textAlignment="center"
                 android:textColorHint="#000" />
@@ -362,86 +341,89 @@
             android:hint="2D"
             android:textColorHint="#000000" />
 
-        <Button
-            android:id="@+id/btn2Dtime1"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv2D"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="12.30"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+            <RelativeLayout
+                android:id="@+id/childLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv2D"
+                android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/btn2Dtime2"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv2D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn2Dtime1"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="13.20"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+                <Button
+                    android:id="@+id/btn2Dtime1"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    android:backgroundTint="#FFFF"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="12.30"
+                    android:textColor="#1B1C51"
+                    android:textSize="9sp"
+                    app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/btn2Dtime3"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv2D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn2Dtime2"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="16.10"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+                <Button
+                    android:id="@+id/btn2Dtime2"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/btn2Dtime1"
+                    android:backgroundTint="#FFFF"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="13.20"
+                    android:textColor="#1B1C51"
+                    android:textSize="9sp"
+                    app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/btn2Dtime4"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv2D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn2Dtime3"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="19.15"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+                <Button
+                    android:id="@+id/btn2Dtime3"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/btn2Dtime2"
+                    android:backgroundTint="#FFFF"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="16.10"
+                    android:textColor="#1B1C51"
+                    android:textSize="9sp"
+                    app:cornerRadius="8dp" />
 
-        <TextView
-            android:id="@+id/tvharga1"
-            android:layout_width="69dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv2D"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/btn2Dtime4"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="Rp.40.000"
-            android:textSize="12sp"
-            app:cornerRadius="8dp" />
+                <Button
+                    android:id="@+id/btn2Dtime4"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/btn2Dtime3"
+                    android:backgroundTint="#FFFF"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="19.15"
+                    android:textColor="#1B1C51"
+                    android:textSize="9sp"
+                    app:cornerRadius="8dp" />
+
+                <TextView
+                    android:id="@+id/tvharga1"
+                    android:layout_width="69dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_toEndOf="@+id/btn2Dtime4"
+                    android:backgroundTint="#FFFF"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="Rp.40.000"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
+            </RelativeLayout>
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:layout_below="@+id/btn2Dtime1"
+            android:layout_below="@+id/childLayout3"
             android:layout_marginTop="10dp"
             android:background="?android:attr/listDivider" />
 
@@ -461,21 +443,6 @@
         android:layout_below="@+id/layout3">
 
         <TextView
-            android:id="@+id/tvharga2"
-            android:layout_width="69dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv3D"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/btn3Dtime4"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="Rp.55.000"
-            android:textSize="12sp"
-            app:cornerRadius="8dp" />
-
-        <TextView
             android:id="@+id/tv3D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -487,71 +454,89 @@
             android:hint="3D"
             android:textColorHint="#000000" />
 
-        <Button
-            android:id="@+id/btn3Dtime1"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
+        <RelativeLayout
+            android:id="@+id/childLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tv3D"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="12.30"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+            android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/btn3Dtime2"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv3D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn3Dtime1"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="13.10"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+            <Button
+                android:id="@+id/btn3Dtime1"
+                android:layout_width="60dp"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="4dp"
+                android:backgroundTint="#FFFF"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="12.30"
+                android:textColor="#1B1C51"
+                android:textSize="9sp"
+                app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/btn3Dtime3"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv3D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn3Dtime2"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="16.10"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+            <Button
+                android:id="@+id/btn3Dtime2"
+                android:layout_width="60dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/btn3Dtime1"
+                android:backgroundTint="#FFFF"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="13.20"
+                android:textColor="#1B1C51"
+                android:textSize="9sp"
+                app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/btn3Dtime4"
-            android:layout_width="60dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/tv3D"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/btn3Dtime3"
-            android:backgroundTint="#FFFF"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="19.15"
-            android:textColor="#1B1C51"
-            android:textSize="9sp"
-            app:cornerRadius="8dp" />
+            <Button
+                android:id="@+id/btn3Dtime3"
+                android:layout_width="60dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/btn3Dtime2"
+                android:backgroundTint="#FFFF"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="16.10"
+                android:textColor="#1B1C51"
+                android:textSize="9sp"
+                app:cornerRadius="8dp" />
+
+            <Button
+                android:id="@+id/btn3Dtime4"
+                android:layout_width="60dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/btn3Dtime3"
+                android:backgroundTint="#FFFF"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="19.15"
+                android:textColor="#1B1C51"
+                android:textSize="9sp"
+                app:cornerRadius="8dp" />
+
+            <TextView
+                android:id="@+id/tvharga2"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="11dp"
+                android:layout_toEndOf="@+id/btn3Dtime4"
+                android:backgroundTint="#FFFF"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="Rp.55.000"
+                android:textSize="12sp"
+                app:cornerRadius="8dp" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/btn3Dtime4"
+            android:layout_below="@+id/childLayout4"
             android:layout_marginTop="10dp"
             android:background="?android:attr/listDivider" />
     </RelativeLayout>
