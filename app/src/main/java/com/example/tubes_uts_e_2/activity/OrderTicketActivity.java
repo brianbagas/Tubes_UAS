@@ -59,10 +59,13 @@ public class OrderTicketActivity extends AppCompatActivity {
         ticketTemp.setTanggal("Senin, 01 November 2021");
         ticketTemp.setWaktu("12.30");
         ticketTemp.setJenis("2D");
+        ticketTemp.setTotal(1);
 
         btnOrderNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addTicket(ticketTemp);
+                Toast.makeText(OrderTicketActivity.this, "Berhasil memesan tiket!", Toast.LENGTH_SHORT).show();
                 Intent homeActivity = new Intent(OrderTicketActivity.this, HomeActivity.class);
                 homeActivity.putExtra("order", true);
                 startActivity(homeActivity);

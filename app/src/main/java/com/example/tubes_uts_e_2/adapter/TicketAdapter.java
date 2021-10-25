@@ -2,6 +2,7 @@ package com.example.tubes_uts_e_2.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
@@ -18,11 +19,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.activity.OrderTicketActivity;
+import com.example.tubes_uts_e_2.activity.PayTicketActivity;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.User;
 import com.example.tubes_uts_e_2.preferences.UserPreferences;
+import com.google.gson.Gson;
 
 import java.util.List;
+
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>{
 
@@ -75,7 +81,12 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         holder.rv_ticket_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Context context = view.getContext();
+                Intent intent = new Intent(context, PayTicketActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Gson gson = new Gson();
+                String strTicket = gson.toJson(ticket);
+                intent.putExtra("objTicket", strTicket);
+                context.startActivity(intent);
             }
         });
     }
