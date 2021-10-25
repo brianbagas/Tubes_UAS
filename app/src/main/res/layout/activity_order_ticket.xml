@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,516 +36,545 @@
         android:layout_marginEnd="187dp"
         android:background="@drawable/ic_baseline_play_circle_filled_24" />
 
-    <ImageView
-        android:id="@+id/tvInfoMovie"
-        android:layout_width="364dp"
-        android:layout_height="210dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/background_cardview_info" />
-
-    <TextView
-        android:id="@+id/tvJudulMovie"
+    <RelativeLayout
+        android:id="@+id/layout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvInfoMovie"
-        android:layout_alignTop="@+id/tvInfoMovie"
-        android:layout_alignEnd="@+id/tvInfoMovie"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Judul Movie"
-        android:textAlignment="center"
-        android:textColor="#000000" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvInfoMovie"
-        android:layout_alignTop="@+id/tvInfoMovie"
-        android:layout_alignEnd="@+id/tvInfoMovie"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="280dp"
-        android:hint="Sinopsis"
-        android:textAlignment="viewStart"
-        android:textColorHint="#000000"
-        android:textSize="12sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:layout_alignStart="@+id/tvInfoMovie"
-        android:layout_alignTop="@+id/tvInfoMovie"
-        android:layout_alignEnd="@+id/tvInfoMovie"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="31dp"
-        android:hint="Isi Sinopsis serta detail movie"
-        android:textAlignment="viewStart"
-        android:textColorHint="#000000"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/tvTanggalNonton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvInfoMovie"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="264dp"
-        android:hint="Tanggal Nonton"
-        android:textColorHint="#000000"
-        android:textSize="12sp" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnJadwal1"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
-        android:layout_below="@+id/tvTanggalNonton"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        app:cardCornerRadius="10dp">
+        <ImageView
+            android:id="@+id/tvInfoMovie"
+            android:layout_width="364dp"
+            android:layout_height="210dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="135dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/background_cardview_info" />
 
         <TextView
-            android:id="@+id/tvDate1"
-            android:layout_width="40dp"
+            android:id="@+id/tvJudulMovie"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:hint="01 Nov"
+            android:layout_alignStart="@+id/tvInfoMovie"
+            android:layout_alignTop="@+id/tvInfoMovie"
+            android:layout_alignEnd="@+id/tvInfoMovie"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="80dp"
+            android:hint="Judul Movie"
             android:textAlignment="center"
-            android:textColorHint="#16173F"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvInfoMovie"
+            android:layout_alignTop="@+id/tvInfoMovie"
+            android:layout_alignEnd="@+id/tvInfoMovie"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="280dp"
+            android:hint="Sinopsis"
+            android:textAlignment="viewStart"
+            android:textColorHint="#000000"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tvDay1"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="18dp"
-            android:hint="SEN"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnJadwal2"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
-        android:layout_below="@+id/tvTanggalNonton"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:layout_toEndOf="@+id/btnJadwal1"
-        app:cardCornerRadius="10dp">
-
-        <TextView
-            android:id="@+id/tvDate2"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:hint="02 Nov"
-            android:textAlignment="center"
-            android:textColorHint="#16173F"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:layout_alignStart="@+id/tvInfoMovie"
+            android:layout_alignTop="@+id/tvInfoMovie"
+            android:layout_alignEnd="@+id/tvInfoMovie"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="31dp"
+            android:hint="Isi Sinopsis serta detail movie"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tvDay2"
-            android:layout_width="30dp"
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="18dp"
-            android:hint="SEL"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnJadwal3"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
-        android:layout_below="@+id/tvTanggalNonton"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:layout_toEndOf="@+id/btnJadwal2"
-        app:cardCornerRadius="10dp">
+            android:layout_alignEnd="@+id/tvInfoMovie"
+            android:layout_alignBottom="@+id/tvInfoMovie"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="138dp"
+            android:numStars="5"
+            android:rating="5" />
 
         <TextView
-            android:id="@+id/tvDate3"
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:hint="03 Nov"
-            android:textAlignment="center"
-            android:textColorHint="#16173F"
-            android:textSize="12sp" />
+            android:layout_below="@+id/tvJudulMovie"
+            android:layout_alignStart="@+id/tvInfoMovie"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="9dp"
+            android:layout_toStartOf="@+id/ratingBar"
+            android:hint="5.0" />
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tvDay3"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="18dp"
-            android:hint="RAB"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
-    </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnJadwal4"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
-        android:layout_below="@+id/tvTanggalNonton"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:layout_toEndOf="@+id/btnJadwal3"
-        app:cardCornerRadius="10dp">
-
-        <TextView
-            android:id="@+id/tvDate4"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:hint="04 Nov"
-            android:textAlignment="center"
-            android:textColorHint="#16173F"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvDay4"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="18dp"
-            android:hint="KAM"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnJadwal5"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
-        android:layout_below="@+id/tvTanggalNonton"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:layout_toEndOf="@+id/btnJadwal4"
-        app:cardCornerRadius="10dp">
-
-        <TextView
-            android:id="@+id/tvDate5"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:hint="05 Nov"
-            android:textAlignment="center"
-            android:textColorHint="#16173F"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvDay5"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="18dp"
-            android:hint="JUM"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvJamNonton"
+    <RelativeLayout
+        android:id="@+id/layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnJadwal1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="279dp"
-        android:hint="Jam Nonton"
-        android:textColorHint="#000000"
-        android:textSize="12sp" />
+        android:layout_below="@+id/layout1">
 
-    <TextView
-        android:id="@+id/tv2D"
+        <TextView
+            android:id="@+id/tvTanggalNonton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="264dp"
+            android:hint="Tanggal Nonton"
+            android:textColorHint="#000000"
+            android:textSize="12sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJadwal1"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvTanggalNonton"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/tvDate1"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:hint="01 Nov"
+                android:textAlignment="center"
+                android:textColorHint="#16173F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDay1"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="18dp"
+                android:hint="SEN"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJadwal2"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvTanggalNonton"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@+id/btnJadwal1"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/tvDate2"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:hint="02 Nov"
+                android:textAlignment="center"
+                android:textColorHint="#16173F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDay2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="18dp"
+                android:hint="SEL"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJadwal3"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvTanggalNonton"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@+id/btnJadwal2"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/tvDate3"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:hint="03 Nov"
+                android:textAlignment="center"
+                android:textColorHint="#16173F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDay3"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="18dp"
+                android:hint="RAB"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJadwal4"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvTanggalNonton"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@+id/btnJadwal3"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/tvDate4"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:hint="04 Nov"
+                android:textAlignment="center"
+                android:textColorHint="#16173F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDay4"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="18dp"
+                android:hint="KAM"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJadwal5"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvTanggalNonton"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@+id/btnJadwal4"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/tvDate5"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:hint="05 Nov"
+                android:textAlignment="center"
+                android:textColorHint="#16173F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDay5"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="18dp"
+                android:hint="JUM"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/divider2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="352dp"
-        android:hint="2D"
-        android:textColorHint="#000000" />
+        android:layout_below="@+id/layout2"
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/btn2Dtime1"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv2D"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="12.30"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <TextView
+            android:id="@+id/tvJamNonton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="279dp"
+            android:hint="Jam Nonton"
+            android:textColorHint="#000000"
+            android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/btn2Dtime2"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv2D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn2Dtime1"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="13.20"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <TextView
+            android:id="@+id/tv2D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="352dp"
+            android:hint="2D"
+            android:textColorHint="#000000" />
 
-    <Button
-        android:id="@+id/btn2Dtime3"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv2D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn2Dtime2"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="16.10"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn2Dtime1"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv2D"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="12.30"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <Button
-        android:id="@+id/btn2Dtime4"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv2D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn2Dtime3"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="19.15"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn2Dtime2"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv2D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn2Dtime1"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="13.20"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <TextView
-        android:id="@+id/tvharga1"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv2D"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/btn2Dtime4"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="Rp.40.000"
-        android:textSize="12sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn2Dtime3"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv2D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn2Dtime2"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="16.10"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <TextView
-        android:id="@+id/tvharga2"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv3D"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/btn3Dtime4"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="Rp.55.000"
-        android:textSize="12sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn2Dtime4"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv2D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn2Dtime3"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="19.15"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <TextView
-        android:id="@+id/tv3D"
+        <TextView
+            android:id="@+id/tvharga1"
+            android:layout_width="69dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv2D"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/btn2Dtime4"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="Rp.40.000"
+            android:textSize="12sp"
+            app:cornerRadius="8dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/btn2Dtime1"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvJamNonton"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/divider"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="352dp"
-        android:hint="3D"
-        android:textColorHint="#000000" />
+        android:layout_below="@+id/layout3">
 
-    <Button
-        android:id="@+id/btn3Dtime1"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv3D"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="12.30"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <TextView
+            android:id="@+id/tvharga2"
+            android:layout_width="69dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv3D"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/btn3Dtime4"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="Rp.55.000"
+            android:textSize="12sp"
+            app:cornerRadius="8dp" />
 
-    <Button
-        android:id="@+id/btn3Dtime2"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv3D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn3Dtime1"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="13.10"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <TextView
+            android:id="@+id/tv3D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="352dp"
+            android:hint="3D"
+            android:textColorHint="#000000" />
 
-    <Button
-        android:id="@+id/btn3Dtime3"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv3D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn3Dtime2"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="16.10"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn3Dtime1"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv3D"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="12.30"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <Button
-        android:id="@+id/btn3Dtime4"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/tv3D"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/btn3Dtime3"
-        android:backgroundTint="#FFFF"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="19.15"
-        android:textColor="#1B1C51"
-        android:textSize="9sp"
-        app:cornerRadius="8dp" />
+        <Button
+            android:id="@+id/btn3Dtime2"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv3D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn3Dtime1"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="13.10"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
 
-    <Button
-        android:id="@+id/btnOrderNow"
-        android:layout_width="344dp"
+        <Button
+            android:id="@+id/btn3Dtime3"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv3D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn3Dtime2"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="16.10"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
+
+        <Button
+            android:id="@+id/btn3Dtime4"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/tv3D"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btn3Dtime3"
+            android:backgroundTint="#FFFF"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="19.15"
+            android:textColor="#1B1C51"
+            android:textSize="9sp"
+            app:cornerRadius="8dp" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/btn3Dtime4"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout5"
+        android:layout_width="wrap_content"
         android:layout_height="67dp"
-        android:layout_below="@+id/divider3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="71dp"
-        android:backgroundTint="#1B1C51"
-        android:shadowColor="#000000"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:text="ORDER NOW"
-        app:cornerRadius="30dp" />
+        android:layout_below="@+id/layout4"
+        android:layout_marginTop="40dp">
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tvInfoMovie"
-        android:layout_alignBottom="@+id/tvInfoMovie"
-        android:layout_marginEnd="127dp"
-        android:layout_marginBottom="138dp"
-        android:numStars="5"
-        android:rating="5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvJudulMovie"
-        android:layout_alignStart="@+id/tvInfoMovie"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="9dp"
-        android:layout_toStartOf="@+id/ratingBar"
-        android:hint="5.0" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_below="@+id/btn2Dtime1"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider" />
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/tvJamNonton"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider" />
-
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/btn3Dtime4"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider" />
+        <Button
+            android:id="@+id/btnOrderNow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginEnd="34dp"
+            android:backgroundTint="#1B1C51"
+            android:shadowColor="#000000"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="ORDER NOW"
+            app:cornerRadius="30dp" />
+    </RelativeLayout>
 </RelativeLayout>
