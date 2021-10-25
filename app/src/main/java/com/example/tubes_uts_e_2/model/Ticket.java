@@ -24,6 +24,10 @@ public class Ticket extends BaseObservable {
     @ColumnInfo(name = "total")
     public int total;
 
+    public Ticket() {
+
+    }
+
     public Ticket(int id, String user, String judul, String tempat, String tanggal, String waktu, String jenis, int total) {
         this.id = id;
         this.user = user;

@@ -66,91 +66,91 @@ public class OrderTicketActivity extends AppCompatActivity {
         btnJadwal1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = setJadwal1("Senin, 01 November 2021");
+                ticketTemp.setWaktu("Senin, 01 November 2021");
             }
         });
 
         btnJadwal2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = setJadwal2("Selasa, 02 November 2021");
+                ticketTemp.setWaktu("Selasa, 02 November 2021");
             }
         });
 
         btnJadwal3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = setJadwal3("Rabu, 03 November 2021");
+                ticketTemp.setWaktu("Rabu, 03 November 2021");
             }
         });
 
         btnJadwal4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = setJadwal4("Kamis, 04 November 2021");
+                ticketTemp.setTanggal("Kamis, 04 November 2021");
             }
         });
 
         btnJadwal5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = setJadwal5("Jumat, 05 November 2021");
+                ticketTemp.setTanggal("Jumat, 05 November 2021");
             }
         });
 
         btn2d1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set2dTime1("12.30");
+                ticketTemp.setWaktu("12.30");
             }
         });
 
         btn2d2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set2dTime2("13.20");
+                ticketTemp.setWaktu("13.20");
             }
         });
 
         btn2d3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set2dTime3("16.10");
+                ticketTemp.setWaktu("16.10");
             }
         });
 
         btn2d4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set2dTime4("19.15");
+                ticketTemp.setWaktu("19.15");
             }
         });
 
         btn3d1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set3dTime1("12.30");
+                ticketTemp.setWaktu("12.30");
             }
         });
 
         btn3d2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set3dTime2("13.20");
+                ticketTemp.setWaktu("13.20");
             }
         });
 
         btn3d3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set3dTime3("16.10");
+                ticketTemp.setWaktu("16.10");
             }
         });
 
         btn3d4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp = set3dTime4("19.15");
+                ticketTemp.setWaktu("19.15");
             }
         });
     }

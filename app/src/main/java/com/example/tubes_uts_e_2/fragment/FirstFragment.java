@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.adapter.HomeAdapter;
 import com.example.tubes_uts_e_2.model.Movie;
+import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
 import com.mapbox.mapboxsdk.maps.MapView;
 
 /**
