@@ -3,20 +3,29 @@ package com.example.tubes_uts_e_2.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.model.Movie;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.google.gson.Gson;
 
 public class PayTicketActivity extends AppCompatActivity {
     private TextView tvNamaMovie, tvLokasiBioskop, tvTanggal, tvWaktu, tvJenisTicket, tvJumlah, tvHarga;
+    ImageView poster;
+    int indexFilm;
     Ticket ticket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_ticket);
+
+        //buat poster
+        poster = findViewById(R.id.ivOrderMovie);
+        poster.setImageResource(Movie.listofMovie[indexFilm].getGambar());
+
         tvNamaMovie = findViewById(R.id.tvNamaMovie);
         tvLokasiBioskop = findViewById(R.id.tvLokasiBioskop);
         tvTanggal = findViewById(R.id.tvTanggal);
@@ -31,7 +40,12 @@ public class PayTicketActivity extends AppCompatActivity {
         ticket = gson.fromJson(strTicket, Ticket.class);
 
         tvNamaMovie.setText(ticket.getJudul());
-        //pls lanjutin
+        tvLokasiBioskop.setText(ticket.getTempat());
+        tvTanggal.setText(ticket.getTanggal());
+        tvWaktu.setText(ticket.getWaktu());
+        tvJenisTicket.setText(ticket.getJenis());
+        tvJumlah.setText(ticket.getTotal());
+        // harga setnya belum
 
     }
 }

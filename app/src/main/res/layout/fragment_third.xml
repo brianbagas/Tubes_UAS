@@ -28,7 +28,7 @@
     <FrameLayout
         android:id="@+id/layoutRV"
         android:layout_width="411dp"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
