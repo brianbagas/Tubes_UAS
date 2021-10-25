@@ -1,4 +1,4 @@
-package com.example.tubes_uts_e_2.activity;
+package com.example.tubes_uts_e_2;
 
 import android.app.Application;
 
