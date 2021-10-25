@@ -67,7 +67,7 @@ public class OrderTicketActivity extends AppCompatActivity {
         ticketTemp.setJudul(Movie.listofMovie[indexFilm].getJudul());
         ticketTemp.setUser(user.getUsername());
         ticketTemp.setTempat("Yogyakarta");
-        ticketTemp.setTanggal("Senin, 01 November 2021");
+        ticketTemp.setTanggal("Senin, 01 Nov 2021");
         ticketTemp.setWaktu("12.30");
         ticketTemp.setJenis("2D");
         ticketTemp.setTotal(1);
@@ -108,35 +108,35 @@ public class OrderTicketActivity extends AppCompatActivity {
         btnJadwal1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setTanggal("Senin, 01 November 2021");
+                ticketTemp.setTanggal("Senin, 01 Nov 2021");
             }
         });
 
         btnJadwal2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setTanggal("Selasa, 02 November 2021");
+                ticketTemp.setTanggal("Selasa, 02 Nov 2021");
             }
         });
 
         btnJadwal3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setTanggal("Rabu, 03 November 2021");
+                ticketTemp.setTanggal("Rabu, 03 Nov 2021");
             }
         });
 
         btnJadwal4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setTanggal("Kamis, 04 November 2021");
+                ticketTemp.setTanggal("Kamis, 04 Nov 2021");
             }
         });
 
         btnJadwal5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setTanggal("Jumat, 05 November 2021");
+                ticketTemp.setTanggal("Jumat, 05 Nov 2021");
             }
         });
 

@@ -40,7 +40,7 @@ public class PayTicketActivity extends AppCompatActivity {
         tvJenisTicket = findViewById(R.id.tvJenisTicket);
         tvJumlah = findViewById(R.id.tvBanyakTicket);
         tvHarga = findViewById(R.id.tvHarga);
-        btnCancle = findViewById(R.id.btnCancle);
+        btnCancle = findViewById(R.id.btnCancel);
 
         //mengambil data dari intent
         String strTicket = getIntent().getStringExtra("objTicket");
