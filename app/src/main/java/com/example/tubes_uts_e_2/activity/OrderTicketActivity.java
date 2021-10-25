@@ -4,25 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.db.DatabaseUser;
 import com.example.tubes_uts_e_2.model.Movie;
 import com.example.tubes_uts_e_2.model.Ticket;
+import com.example.tubes_uts_e_2.model.User;
 
 public class OrderTicketActivity extends AppCompatActivity {
 
     int indexFilm;
     ImageView trailer, btnBack;
     TextView tvJudulMovie;
+    Ticket ticketTemp = new Ticket();
 
     CardView btnJadwal1, btnJadwal2, btnJadwal3, btnJadwal4, btnJadwal5;
     Button btn2d1, btn2d2, btn2d3, btn2d4;
     Button btn3d1, btn3d2, btn3d3, btn3d4;
+    Button btnOrderNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,10 @@ public class OrderTicketActivity extends AppCompatActivity {
 
         indexFilm = getIntent().getIntExtra("indexFilm", 0);
         tvJudulMovie = findViewById(R.id.tvJudulMovie);
+        trailer = findViewById(R.id.trailer);
         btnBack = findViewById(R.id.btnBack);
+        btnOrderNow = findViewById(R.id.btnOrderNow);
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +54,24 @@ public class OrderTicketActivity extends AppCompatActivity {
         trailer.setImageResource(Movie.listofMovie[indexFilm].getGambar());
         tvJudulMovie.setText(Movie.listofMovie[indexFilm].getJudul());
 
+        findViewBtn();
+        setOnclickBtn();
+        ticketTemp.setTanggal("Senin, 01 November 2021");
+        ticketTemp.setWaktu("12.30");
+        ticketTemp.setJenis("2D");
+
+        btnOrderNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent homeActivity = new Intent(OrderTicketActivity.this, HomeActivity.class);
+                homeActivity.putExtra("order", true);
+                startActivity(homeActivity);
+                finish();
+            }
+        });
+    }
+
+    public void findViewBtn() {
         btnJadwal1 = findViewById(R.id.btnJadwal1);
         btnJadwal2 = findViewById(R.id.btnJadwal2);
         btnJadwal3 = findViewById(R.id.btnJadwal3);
@@ -60,27 +87,28 @@ public class OrderTicketActivity extends AppCompatActivity {
         btn3d2 = findViewById(R.id.btn3Dtime2);
         btn3d3 = findViewById(R.id.btn3Dtime3);
         btn3d4 = findViewById(R.id.btn3Dtime4);
-        trailer = findViewById(R.id.trailer);
+    }
 
-        Ticket ticketTemp = new Ticket();
+    public void setOnclickBtn() {
+
         btnJadwal1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setWaktu("Senin, 01 November 2021");
+                ticketTemp.setTanggal("Senin, 01 November 2021");
             }
         });
 
         btnJadwal2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setWaktu("Selasa, 02 November 2021");
+                ticketTemp.setTanggal("Selasa, 02 November 2021");
             }
         });
 
         btnJadwal3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ticketTemp.setWaktu("Rabu, 03 November 2021");
+                ticketTemp.setTanggal("Rabu, 03 November 2021");
             }
         });
 
@@ -102,6 +130,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("12.30");
+                ticketTemp.setJenis("2D");
             }
         });
 
@@ -109,6 +138,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("13.20");
+                ticketTemp.setJenis("2D");
             }
         });
 
@@ -116,6 +146,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("16.10");
+                ticketTemp.setJenis("2D");
             }
         });
 
@@ -123,6 +154,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("19.15");
+                ticketTemp.setJenis("2D");
             }
         });
 
@@ -130,6 +162,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("12.30");
+                ticketTemp.setJenis("3D");
             }
         });
 
@@ -137,6 +170,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("13.20");
+                ticketTemp.setJenis("3D");
             }
         });
 
@@ -144,6 +178,7 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("16.10");
+                ticketTemp.setJenis("3D");
             }
         });
 
@@ -151,7 +186,33 @@ public class OrderTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ticketTemp.setWaktu("19.15");
+                ticketTemp.setJenis("3D");
             }
         });
+
+    }
+
+    private void addTicket(Ticket ticket) {
+        class AddTicket extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                DatabaseUser.getInstance(OrderTicketActivity.this)
+                        .getDatabase()
+                        .ticketDao()
+                        .insertTicket(ticket);
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void unused) {
+                super.onPostExecute(unused);
+                Toast.makeText(OrderTicketActivity.this, "Berhasil memesan tiket", Toast.LENGTH_SHORT).show();;
+            }
+        }
+        AddTicket add = new AddTicket();
+        add.execute();
     }
 }

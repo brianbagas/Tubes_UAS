@@ -77,6 +77,24 @@ public class SecondFragment extends Fragment {
         View view  = inflater.inflate(R.layout.fragment_second, container, false);
         mapView = (MapView) view.findViewById(R.id.mapView);
 
+//        LatLng pos1 = new LatLng(-7.787155, 110.436537);
+//        LatLng pos2 = new LatLng(-7.779672, 110.425458);
+//        LatLng pos3 = new LatLng(-7.781628, 110.440986);
+//        LatLng pos4 = new LatLng(-7.766478,110.357402);
+//        LatLng pos5 = new LatLng(-7.730418,110.462527);
+//        LatLng pos6 = new LatLng(-8.391409,115.237746);
+//        LatLng pos7 = new LatLng(-8.315320,114.622109);
+//        LatLng pos8 = new LatLng(-8.086967,113.599714);
+//        LatLng pos9 = new LatLng(-7.336282,110.502572);
+//        mapboxMap.addMarker(new MarkerOptions().position(pos1));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos2));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos3));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos4));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos5));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos6));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos7));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos8));
+//        mapboxMap.addMarker(new MarkerOptions().position(pos9));
 
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -91,7 +109,6 @@ public class SecondFragment extends Fragment {
                         mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                                 point,10
                         ));
-                        mapboxMap.addMarker(markerOptions);
                         return false;
                     }
 

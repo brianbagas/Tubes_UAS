@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
+        TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
+        RelativeLayout rv_ticket_item;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -41,6 +43,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             tvWaktu = itemView.findViewById(R.id.waktu);
             tvJenisTiket = itemView.findViewById(R.id.jenisTiket);
             tvTotal = itemView.findViewById(R.id.total);
+            rv_ticket_item = itemView.findViewById(R.id.rv_ticket_item);
         }
     }
 
@@ -68,6 +71,13 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         holder.tvWaktu.setText(ticket.getWaktu());
         holder.tvJenisTiket.setText(ticket.getJenis());
         holder.tvTotal.setText(ticket.getTotal());
+
+        holder.rv_ticket_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override

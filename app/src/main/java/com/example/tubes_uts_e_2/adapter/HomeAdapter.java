@@ -52,7 +52,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, OrderTicketActivity.class);
+                Intent intent = new Intent(context, OrderTicketActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("indexFilm", position);
                 context.startActivity(intent);
             }
