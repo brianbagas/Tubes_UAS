@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.tubes_uts_e_2.R;
 import com.example.tubes_uts_e_2.model.Movie;
 import com.example.tubes_uts_e_2.model.Ticket;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 public class PayTicketActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class PayTicketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseMessaging.getInstance().subscribeToTopic("payment_notification");
         setContentView(R.layout.activity_pay_ticket);
 
         //buat poster
@@ -46,7 +48,13 @@ public class PayTicketActivity extends AppCompatActivity {
         tvWaktu.setText(ticket.getWaktu());
         tvJenisTicket.setText(ticket.getJenis());
         tvJumlah.setText(ticket.getTotal());
-        // harga setnya belum
+
+        if(ticket.getJenis().equals("2D")){
+            tvHarga.setText("Rp.40.000");
+        }
+        else{
+            tvHarga.setText("Rp.55.000");
+        }
 
     }
 }
