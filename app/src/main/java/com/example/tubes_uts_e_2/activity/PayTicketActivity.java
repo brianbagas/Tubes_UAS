@@ -41,7 +41,7 @@ public class PayTicketActivity extends AppCompatActivity {
         tvJenisTicket = findViewById(R.id.tvJenisTicket);
         tvJumlah = findViewById(R.id.tvBanyakTicket);
         tvHarga = findViewById(R.id.tvHarga);
-        btnCancle = findViewById(R.id.btnCancle);
+        btnCancle = findViewById(R.id.btnCancel);
         btnPayNow = findViewById(R.id.btnPayNow);
 
         //mengambil data dari intent
