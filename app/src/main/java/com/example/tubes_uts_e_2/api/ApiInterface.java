@@ -19,15 +19,15 @@ public interface ApiInterface {
 
     @Headers({"Accept: application/json"})
     @GET("ticket/{id}")
-    Call<TicketResponse> getProdukById(@Path("id") long id);
+    Call<TicketResponse> getTicketById(@Path("id") long id);
 
     @Headers({"Accept: application/json"})
     @GET("ticket/user/{user}")
-    Call<TicketResponse> getProdukByUser(@Path("user") long id);
+    Call<TicketResponse> getTicketByUser(@Path("user") long id);
 
     @Headers({"Accept: application/json"})
     @POST("ticket")
-    Call<TicketResponse> createTIcket(@Body Ticket ticket);
+    Call<TicketResponse> createTicket(@Body Ticket ticket);
 
     @Headers({"Accept: application/json"})
     @PUT("ticket/{id}")
