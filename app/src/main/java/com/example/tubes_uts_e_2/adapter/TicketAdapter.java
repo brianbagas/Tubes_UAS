@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tubes_uts_e_2.R;
@@ -96,5 +98,25 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public int getItemCount() {
         return ticketList.size();
     }
+
+    public void setTicketList(List<Ticket> ticketList){
+        this.ticketList = ticketList;
+    }
+
+//    public class ViewHolder extends RecyclerView.ViewHolder {
+//
+//        TextView tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
+//
+//        public ViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//
+//            tvJudul = itemView.findViewById(R.id.tvJudul);
+//            tvTempat = itemView.findViewById(R.id.tv_nama);
+//            tvTanggal = itemView.findViewById(R.id.tv_stok);
+//            tvWaktu = itemView.findViewById(R.id.iv_gambar);
+//            tvJenisTiket = itemView.findViewById(R.id.btn_delete);
+//            tvTotal = itemView.findViewById(R.id.cv_produk);
+//        }
+//    }
 }
 

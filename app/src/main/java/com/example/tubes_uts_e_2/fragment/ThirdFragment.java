@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -91,6 +92,7 @@ public class ThirdFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_third, container, false);
     }
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -99,8 +101,9 @@ public class ThirdFragment extends Fragment {
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        ticketAdapter = new TicketAdapter(new ArrayList<>(), getActivity());
+
         getTickets();
-        ticketList = new ArrayList<>();
     }
 
     private void getTickets() {
@@ -108,22 +111,24 @@ public class ThirdFragment extends Fragment {
         call.enqueue(new Callback<TicketResponse>() {
             @Override
             public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
-//                if (response.isSuccessful()){
-//                    Toast.makeText(ThirdFragment.class, response.body().getMessage(),Toast.LENGTH_SHORT).show();
-//                }
-//                else{
+                if (response.isSuccessful()){
+//                    Toast.makeText(getActivity(), response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                    ticketAdapter.setTicketList(response.body().getTicketList());
+                }
+                else{
 //                    try {
 //                        JSONObject jObjError = new JSONObject(response.errorBody().string());
-//                        Toast.makeText(HomeActivity.this, jObjError.getString("message"), Toast.LENGTH_SHORT).show();
-//                    } catch (Exception e) {
-//                        Toast.makeText(HomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
 //                    }
-//                }
+//                    catch (Exception e) {
+//                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+                }
             }
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
-//                Toast.makeText(HomeActivity.this,"Network Error",Toast.LENGTH_SHORT)
+//                Toast.makeText(getActivity(),"Network Error",Toast.LENGTH_SHORT)
 //                        .show();
             }
         });
