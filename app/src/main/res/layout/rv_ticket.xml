@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_ticket_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="4dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/background_ticket">
+
+    <LinearLayout
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/position1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Judul Film"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/inputJudul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Judul"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Tempat"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tempat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tempat"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Tanggal"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/Tanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Waktu Nonton"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/waktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Waktu"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Jenis Ticket"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/jenisTiket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jenis Tiket"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Total Ticket"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/totalTicket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Total"
+                android:textColor="#FBFF44"
+                android:textColorHint="#FBFF44" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

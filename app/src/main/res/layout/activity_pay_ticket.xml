@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/order_ticket_background">
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="725dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:translationY="30dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPoster"
+            android:layout_width="120dp"
+            android:layout_height="180dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="39dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/ivOrderMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/cvPoster"
+            android:backgroundTint="#CF0707"
+            android:hint="CANCEL PAYMENT"
+            android:textColorHint="#FFFFFF"
+            android:textSize="6sp"
+            app:cornerRadius="50dp" />
+
+        <TextView
+            android:id="@+id/tvNamaMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnCancel"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@+id/cvPoster"
+            android:text="Nama Movie"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLokasiBioskop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNamaMovie"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/cvPoster"
+            android:text="Tempat Bioskop"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvTanggalNonton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cvPoster"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Tanggal Menonton"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTanggalNonton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Tanggal"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvWaktuNonton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTanggal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Waktu Nonton"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvWaktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvWaktuNonton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Waktu"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvJenisTayangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvWaktu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Jenis Tayangan"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvJenisTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJenisTayangan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Jenis Ticket"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvJumlahTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJenisTicket"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Jumlah Ticket"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvBanyakTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJumlahTicket"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Banyak Ticket"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvTotalHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBanyakTicket"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Total Harga"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTotalHarga"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Harga"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <RelativeLayout
+            android:id="@+id/layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvHarga"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp">
+
+            <Button
+                android:id="@+id/btnPayNow"
+                android:layout_width="344dp"
+                android:layout_height="67dp"
+                android:backgroundTint="#1B1C51"
+                android:shadowColor="#000000"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                android:text="PAY NOW"
+                app:cornerRadius="50dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
