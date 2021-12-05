@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
@@ -91,6 +93,7 @@ public class ThirdFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_third, container, false);
     }
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -98,7 +101,6 @@ public class ThirdFragment extends Fragment {
 
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         getTickets();
         //ticketList = new ArrayList<>();
     }
@@ -115,11 +117,11 @@ public class ThirdFragment extends Fragment {
               }
 
                else{
-
-               try { JSONObject jObjError = new JSONObject(response.errorBody().string());
-                   Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
-               } catch (Exception e) {
-                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                   try { JSONObject jObjError = new JSONObject(response.errorBody().string());
+                       Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
+                   }
+                   catch (Exception e) {
+                         Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                    }
               }
             }
@@ -153,4 +155,37 @@ public class ThirdFragment extends Fragment {
 //        GetTickets get = new GetTickets();
 //        get.execute();
     }
+
+//    private void deleteTicket(long id) {
+//        ImageButton buttonDelete = view.findViewById(R.id.btnDelete);
+//        buttonDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Call<TicketResponse> call = apiService.deleteTicket(id);
+//                call.enqueue(new Callback<TicketResponse>() {
+//                    @Override
+//                    public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+//                        if (response.isSuccessful() && response.body() != null){
+//                            Toast.makeText(getActivity(), response.body().getMessage(),Toast.LENGTH_SHORT).show();
+//                            getTickets();
+//                        }
+//                        else {
+//                            try { JSONObject jObjError = new JSONObject(response.errorBody().string());
+//                                Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
+//                            }
+//                            catch (Exception e) {
+//                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<TicketResponse> call, Throwable t) {
+//                        Toast.makeText(getActivity(),"Network Error",Toast.LENGTH_SHORT)
+//                                .show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 }

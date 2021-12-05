@@ -122,27 +122,27 @@ public class ProfilActivity extends AppCompatActivity {
     }
 
     private void deleteUser(User user) {
-        class DeleteUser extends AsyncTask<Void, Void, Void> {
-
-            @Override
-            protected Void doInBackground(Void... voids) {
-
-                DatabaseUser.getInstance(ProfilActivity.this)
-                        .getDatabase()
-                        .userDao()
-                        .deleteUser(user);
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void unused) {
-                super.onPostExecute(unused);
-                Toast.makeText(ProfilActivity.this, "Akun terhapus", Toast.LENGTH_SHORT).show();
-            }
-        }
-        DeleteUser delete = new DeleteUser();
-        delete.execute();
+//        class DeleteUser extends AsyncTask<Void, Void, Void> {
+//
+//            @Override
+//            protected Void doInBackground(Void... voids) {
+//
+//                DatabaseUser.getInstance(ProfilActivity.this)
+//                        .getDatabase()
+//                        .userDao()
+//                        .deleteUser(user);
+//
+//                return null;
+//            }
+//
+//            @Override
+//            protected void onPostExecute(Void unused) {
+//                super.onPostExecute(unused);
+//                Toast.makeText(ProfilActivity.this, "Akun terhapus", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//        DeleteUser delete = new DeleteUser();
+//        delete.execute();
     }
 
     private List<User> getUser(String username) {

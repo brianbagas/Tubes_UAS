@@ -1,5 +1,6 @@
 package com.example.tubes_uts_e_2.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
         RelativeLayout rv_ticket_item;
+        ImageButton btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +56,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             tvJenisTiket = itemView.findViewById(R.id.jenisTiket);
             tvTotal = itemView.findViewById(R.id.totalTicket);
             rv_ticket_item = itemView.findViewById(R.id.rv_ticket_item);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
 
@@ -72,7 +75,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Ticket ticket = ticketList.get(position);
         holder.tvJudul.setText(ticket.getJudul());
         holder.tvTempat.setText(ticket.getTempat());
@@ -92,31 +95,21 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                 context.startActivity(intent);
             }
         });
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Ticket ticket = ticketList.get(position);
+
+                ticketList.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return ticketList.size();
     }
-
-    public void setTicketList(List<Ticket> ticketList){
-        this.ticketList = ticketList;
-    }
-
-//    public class ViewHolder extends RecyclerView.ViewHolder {
-//
-//        TextView tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
-//
-//        public ViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//
-//            tvJudul = itemView.findViewById(R.id.tvJudul);
-//            tvTempat = itemView.findViewById(R.id.tv_nama);
-//            tvTanggal = itemView.findViewById(R.id.tv_stok);
-//            tvWaktu = itemView.findViewById(R.id.iv_gambar);
-//            tvJenisTiket = itemView.findViewById(R.id.btn_delete);
-//            tvTotal = itemView.findViewById(R.id.cv_produk);
-//        }
-//    }
 }
 
