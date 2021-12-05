@@ -23,7 +23,7 @@ import java.util.List;
 public class ProfilActivity extends AppCompatActivity {
 
     private TextView tvNama, tvEmail;
-    private Button btnLogout, btnDelete;
+    private Button btnLogout, btnDelete,btnEdit;
     ImageView btnBackHome;
     private UserPreferences userPreferences;
     private AlertDialog.Builder builder;
@@ -44,6 +44,7 @@ public class ProfilActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         btnDelete = findViewById(R.id.btnDelete);
         btnBackHome = findViewById(R.id.btnBackHome);
+        btnEdit = findViewById(R.id.btnEdit);
         getSupportActionBar().hide();
 
         userPreferences = new UserPreferences(this);
@@ -54,6 +55,16 @@ public class ProfilActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent homeActivity = new Intent(ProfilActivity.this, HomeActivity.class);
                 startActivity(homeActivity);
+                finish();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent editActivity = new Intent(ProfilActivity.this, EditActivity.class);
+                startActivity(editActivity);
                 finish();
             }
         });

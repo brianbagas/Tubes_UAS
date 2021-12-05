@@ -44,7 +44,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserTicket = itemView.findViewById(R.id.tvUserTicket);
+
             tvJudul = itemView.findViewById(R.id.inputJudul);
             tvTempat = itemView.findViewById(R.id.tempat);
             tvTanggal = itemView.findViewById(R.id.Tanggal);
@@ -72,7 +72,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Ticket ticket = ticketList.get(position);
-        holder.tvUserTicket.setText(ticket.getUser());
         holder.tvJudul.setText(ticket.getJudul());
         holder.tvTempat.setText(ticket.getTempat());
         holder.tvTanggal.setText(ticket.getTanggal());

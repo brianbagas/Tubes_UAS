@@ -66,4 +66,10 @@ dependencies {
     implementation ('com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.13.0') {
         transitive = true
     }
+
+    // Swipe Refresh Layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
