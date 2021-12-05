@@ -33,12 +33,13 @@ public class EditActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_PICTURE = 1;
     private Bitmap bitmap = null;
-    private Button btnCam;
+    private Button btnCam,btnSaveEdit;
     private EditText etNama, etEmail, etUsername, etPassword;
     private ImageView pp;
     private UserPreferences userPreferences;
     private List<User> userList;
     private AlertDialog.Builder builder;
+    private User temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class EditActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        btnSaveEdit = findViewById(R.id.btnSaveEdit);
         pp = findViewById(R.id.iv_gambar);
         userList = getUser(userPreferences.getUserLogin().getUsername());
         etNama.setText(userList.get(0).getNama());
@@ -77,6 +79,24 @@ public class EditActivity extends AppCompatActivity {
                     startActivityForResult(intent, CAMERA_REQUEST);
                 }
 
+            }
+        });
+
+        btnSaveEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nama = etNama.getText().toString();
+                String email = etEmail.getText().toString();
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                if(cekKosong()) {
+                    temp = new User(0, nama, email, username, password, null);
+                    AddUser(temp);
+                    Intent profilActivity = new Intent(EditActivity.this, ProfilActivity.class);
+                    profilActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(profilActivity);
+                    finish();
+                }
             }
         });
 
@@ -162,5 +182,13 @@ public class EditActivity extends AppCompatActivity {
         }
         addUser add = new addUser();
         add.execute();
+    }
+
+    private boolean cekKosong() {
+        if(etNama.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty()){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
