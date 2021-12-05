@@ -13,12 +13,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.api.ApiClient;
+import com.example.tubes_uts_e_2.api.ApiInterface;
 import com.example.tubes_uts_e_2.db.DatabaseTicket;
 import com.example.tubes_uts_e_2.db.DatabaseUser;
 import com.example.tubes_uts_e_2.model.Movie;
 import com.example.tubes_uts_e_2.model.Ticket;
+import com.example.tubes_uts_e_2.model.TicketResponse;
 import com.example.tubes_uts_e_2.model.User;
 import com.example.tubes_uts_e_2.preferences.UserPreferences;
+
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OrderTicketActivity extends AppCompatActivity {
 
@@ -26,6 +35,7 @@ public class OrderTicketActivity extends AppCompatActivity {
     ImageView trailer, btnBack;
     TextView tvJudulMovie;
     Ticket ticketTemp = new Ticket();
+    private ApiInterface apiService;
 
     CardView btnJadwal1, btnJadwal2, btnJadwal3, btnJadwal4, btnJadwal5;
     Button btn2d1, btn2d2, btn2d3, btn2d4;
@@ -40,6 +50,8 @@ public class OrderTicketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_ticket);
         getSupportActionBar().hide();
+
+        apiService = ApiClient.getClient().create(ApiInterface.class);
 
         userPreferences = new UserPreferences(this);
         user = userPreferences.getUserLogin();
@@ -207,26 +219,48 @@ public class OrderTicketActivity extends AppCompatActivity {
     }
 
     private void addTicket(Ticket ticket) {
-        class AddTicket extends AsyncTask<Void, Void, Void> {
-
+        Call<TicketResponse> call = apiService.createTicket(ticket);
+        call.enqueue(new Callback<TicketResponse>() {
             @Override
-            protected Void doInBackground(Void... voids) {
-
-                DatabaseTicket.getInstance(OrderTicketActivity.this)
-                        .getDatabase()
-                        .ticketDao()
-                        .insertTicket(ticket);
-
-                return null;
+            public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(OrderTicketActivity.this, response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(OrderTicketActivity.this, jObjError.getString("message"), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(OrderTicketActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
 
             @Override
-            protected void onPostExecute(Void unused) {
-                super.onPostExecute(unused);
-                Toast.makeText(OrderTicketActivity.this, "Berhasil memesan tiket", Toast.LENGTH_SHORT).show();;
+            public void onFailure(Call<TicketResponse> call, Throwable t) {
+                Toast.makeText(OrderTicketActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        }
-        AddTicket add = new AddTicket();
-        add.execute();
+        });
+//        class AddTicket extends AsyncTask<Void, Void, Void> {
+//
+//            @Override
+//            protected Void doInBackground(Void... voids) {
+//
+//                DatabaseTicket.getInstance(OrderTicketActivity.this)
+//                        .getDatabase()
+//                        .ticketDao()
+//                        .insertTicket(ticket);
+//
+//                return null;
+//            }
+//
+//            @Override
+//            protected void onPostExecute(Void unused) {
+//                super.onPostExecute(unused);
+//                Toast.makeText(OrderTicketActivity.this, "Berhasil memesan tiket", Toast.LENGTH_SHORT).show();;
+//            }
+//        }
+//        AddTicket add = new AddTicket();
+//        add.execute();
     }
 }
