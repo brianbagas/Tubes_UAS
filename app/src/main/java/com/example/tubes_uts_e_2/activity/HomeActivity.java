@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     BottomNavigationView bottomNavigationView;
     ImageView btnProfil;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,4 +70,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 .replace(R.id.fragment_container_home, fragment)
                 .commit();
     }
+
+
 }

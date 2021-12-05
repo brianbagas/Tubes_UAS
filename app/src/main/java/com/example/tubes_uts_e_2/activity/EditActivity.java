@@ -1,27 +1,68 @@
 package com.example.tubes_uts_e_2.activity;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.db.DatabaseUser;
+import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
+
+import java.io.InputStream;
+import java.util.List;
 
 public class EditActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA = 100;
     private static final int CAMERA_REQUEST = 0;
+    private static final int GALLERY_PICTURE = 1;
+    private Bitmap bitmap = null;
     private Button btnCam;
+    private EditText etNama, etEmail, etUsername, etPassword;
+    private ImageView pp;
+    private UserPreferences userPreferences;
+    private List<User> userList;
+    private AlertDialog.Builder builder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
+        userPreferences = new UserPreferences(this);
+
+        etNama = findViewById(R.id.etNama);
+        etUsername = findViewById(R.id.etUsername);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        pp = findViewById(R.id.iv_gambar);
+        userList = getUser(userPreferences.getUserLogin().getUsername());
+        etNama.setText(userList.get(0).getNama());
+        etEmail.setText(userList.get(0).getEmail());
+        etUsername.setText(userList.get(0).getUsername());
+
+
         btnCam = findViewById(R.id.btnCam);
+
+        userPreferences = new UserPreferences(this);
+        builder=new AlertDialog.Builder(EditActivity.this);
+
 
         btnCam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +80,87 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private List<User> getUser(String username) {
+
+        List<User> userList = DatabaseUser.getInstance(this)
+                .getDatabase()
+                .userDao()
+                .findUser(username);
+
+        return userList;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (data == null)
+            return;
+
+        if (resultCode == RESULT_OK && requestCode == GALLERY_PICTURE) {
+            Uri selectedImage = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(selectedImage);
+                bitmap = BitmapFactory.decodeStream(inputStream);
+            } catch (Exception e) {
+                Toast.makeText(EditActivity.this, e.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST) {
+            bitmap = (Bitmap) data.getExtras().get("data");
+        }
+
+        bitmap = getResizedBitmap(bitmap, 512);
+        pp.setImageBitmap(bitmap);
+    }
+
+    private Bitmap getResizedBitmap(Bitmap bitmap, int maxSize) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+
+        float bitmapRatio = (float) width / (float) height;
+
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+
+        return Bitmap.createScaledBitmap(bitmap, width, height, true);
+    }
+
+    private void AddUser(User temp) {
+        class addUser extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                User user = new User();
+                user.setNama(temp.getNama());
+                user.setEmail(temp.getEmail());
+                user.setUsername(temp.getUsername());
+                user.setPassword(temp.getPassword());
+                user.setImgURL(temp.getImgURL());
+
+                DatabaseUser.getInstance(EditActivity.this)
+                        .getDatabase()
+                        .userDao()
+                        .updateUser(user);
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void unused) {
+                super.onPostExecute(unused);
+                Toast.makeText(EditActivity.this, "Berhasil Edit data", Toast.LENGTH_SHORT).show();;
+            }
+        }
+        addUser add = new addUser();
+        add.execute();
     }
 }
