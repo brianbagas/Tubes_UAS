@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +44,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     private List<Ticket> ticketList,filtered;
     private Context context;
     private ImageButton btnDelete;
+    private LinearLayout layoutLoading;
     public CallBackInterface callbackInterface;
 
     private ApiInterface apiService;
@@ -55,10 +60,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         RelativeLayout rv_ticket_item;
         ImageButton btnDelete;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             apiService = ApiClient.getClient().create(ApiInterface.class);
+//            layoutLoading = itemView.findViewById(R.id.layout_loading);
 
             tvJudul = itemView.findViewById(R.id.inputJudul);
             tvTempat = itemView.findViewById(R.id.tempat);
@@ -142,13 +147,15 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public void deleteTicket(int id) {
         // TODO: Tambahkan fungsi untuk menghapus data buku.
         Call<TicketResponse> call = apiService.deleteTicket(id);
+//        setLoading(true);
         call.enqueue(new Callback<TicketResponse>() {
             @Override
             public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
                 if (response.isSuccessful() && response.body() != null){
                     Toast.makeText(context.getApplicationContext(), "loh he", Toast.LENGTH_SHORT).show();
                     callbackInterface.callBackMethod();
-                }else {
+                }
+                else {
                     try { JSONObject jObjError = new JSONObject(response.errorBody().string());
                         Toast.makeText(context.getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
 
@@ -156,14 +163,26 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                         Toast.makeText(context.getApplicationContext(), "apa sih", Toast.LENGTH_SHORT).show();
                     }
                 }
+//                setLoading(false);
             }
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
                 Toast.makeText(context.getApplicationContext(), "Network error", Toast.LENGTH_SHORT).show();
-
+//                setLoading(false);
             }
         });
     }
+
+//    private void setLoading(boolean isLoading) {
+//        if (isLoading) {
+//            getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+//                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+//            layoutLoading.setVisibility(View.VISIBLE);
+//        } else {
+//            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+//            layoutLoading.setVisibility(View.GONE);
+//        }
+//    }
 }
 

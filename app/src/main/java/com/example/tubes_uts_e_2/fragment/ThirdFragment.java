@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
@@ -41,6 +43,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
     private List<Ticket> ticketList;
     private TicketAdapter ticketAdapter;
     private ApiInterface apiService;
+    private LinearLayout layoutLoading;
     private long temp;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,6 +97,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
         super.onViewCreated(view, savedInstanceState);
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
+//        layoutLoading = view.findViewById(R.id.layout_loading);
 
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -112,7 +116,8 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
                    Toast.makeText(getActivity(),
                            response.body().getMessage(),
                            Toast.LENGTH_SHORT).show();
-              } else{
+           }
+           else{
                    try { JSONObject jObjError = new JSONObject(response.errorBody().string());
                        Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
                    }
@@ -155,6 +160,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
     public void deleteTicket(int id) {
         // TODO: Tambahkan fungsi untuk menghapus data buku.
         Call<TicketResponse> call = apiService.deleteTicket(id);
+//        setLoading(true);
         call.enqueue(new Callback<TicketResponse>() {
             @Override
             public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
@@ -170,15 +176,13 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
                         Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-
+                setLoading(false);
             }
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Network error", Toast.LENGTH_SHORT).show();
-
+                setLoading(false);
             }
         });
     }
@@ -186,7 +190,17 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
 
     @Override
     public void callBackMethod() {
-
         getTickets();
+    }
+
+    private void setLoading(boolean isLoading) {
+        if (isLoading) {
+            getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            layoutLoading.setVisibility(View.VISIBLE);
+        } else {
+            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            layoutLoading.setVisibility(View.GONE);
+        }
     }
 }
