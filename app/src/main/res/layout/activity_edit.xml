@@ -31,12 +31,13 @@
             android:src="@drawable/ic_baseline_image_24" />
 
     </androidx.cardview.widget.CardView>
+
     <Button
+        android:id="@+id/btnCam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="GAnTI POTO PROPIL"
-        android:id="@+id/btnCam">
+        android:text="GAnTI POTO PROPIL">
 
     </Button>
 

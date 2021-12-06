@@ -156,9 +156,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                         Toast.makeText(context.getApplicationContext(), "apa sih", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-
             }
 
             @Override
