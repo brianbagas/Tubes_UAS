@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,8 @@ public class EditActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_PICTURE = 1;
     private Bitmap bitmap = null;
-    private Button btnCam,btnSaveEdit;
+    private Button btnSaveEdit;
+    private ImageView btnCam;
     private EditText etNama, etEmail, etUsername, etPassword;
     private ImageView pp;
     private UserPreferences userPreferences;

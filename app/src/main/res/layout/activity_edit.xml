@@ -1,128 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:clipToOutline="true"
-    android:background="@drawable/login_background">
+    android:background="@drawable/background_profil">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_gambar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="8dp"
+    <RelativeLayout
+        android:id="@+id/login_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/form">
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-1dp"
+                android:layout_toEndOf="@+id/btnBackHome"
+                android:text="AKUN SAYA"
+                android:textColor="#1B1C51"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnBackHome"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/ic_baseline_arrow_back_24"
+                android:backgroundTint="#1B1C51" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_gambar"
+            android:layout_height="150dp"
+            android:layout_width="150dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="100dp"
+            app:cardCornerRadius="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_gambar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_image_24" />
+
+        </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/iv_gambar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_baseline_image_24" />
-
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btnCam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="GAnTI POTO PROPIL">
-
-    </Button>
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="370dp"
-        android:id="@+id/form"
-        android:background="@drawable/ic_loginregister_background">
-
-
-        <EditText
-            android:id="@+id/etNama"
-            android:layout_width="257dp"
+            android:id="@+id/btnCam"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="225dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/ic_baseline_photo_camera_24" />
 
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#16173F"
-            android:hint="Nama"
-            android:textColorHint="#16173F"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvProfilNama"
+            android:layout_width="245dp"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="306dp"
+            android:layout_marginEnd="87dp"
+            android:background="@drawable/rectangle_textview_profil"
+            android:paddingTop="8dp"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="257dp"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/tvProfilEmail"
+            android:layout_width="245dp"
+            android:layout_height="38dp"
+            android:layout_below="@+id/tvProfilNama"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
-            android:backgroundTint="#16173F"
-            android:hint="Email"
-            android:textColorHint="#16173F"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNama" />
-
-        <EditText
-            android:id="@+id/etUsername"
-            android:layout_width="257dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#16173F"
-            android:hint="Username"
-            android:textColorHint="#16173F"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="257dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#16173F"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColorHint="#16173F"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+            android:layout_marginEnd="87dp"
+            android:background="@drawable/rectangle_textview_profil"
+            android:paddingTop="8dp"
+            android:text="Email"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btnSaveEdit"
-            android:layout_width="141dp"
+            android:layout_width="245dp"
             android:layout_height="50dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#1B1C51"
-            android:text="SIMPAN"
-            app:cornerRadius="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+            android:layout_below="@id/tvProfilEmail"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="85dp"
+            android:backgroundTint="@color/black"
+            android:text="SAVE CHANGES"
+            android:textAlignment="center"
+            app:cornerRadius="20dp" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
