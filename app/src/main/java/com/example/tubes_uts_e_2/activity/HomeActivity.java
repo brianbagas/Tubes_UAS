@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.callback.CallBackInterface;
 import com.example.tubes_uts_e_2.fragment.FirstFragment;
 import com.example.tubes_uts_e_2.fragment.SecondFragment;
 import com.example.tubes_uts_e_2.fragment.ThirdFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
+public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
     ImageView btnProfil;
@@ -70,6 +71,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 .replace(R.id.fragment_container_home, fragment)
                 .commit();
     }
+
 
 
 }

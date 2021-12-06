@@ -1,53 +1,64 @@
 package com.example.tubes_uts_e_2.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tubes_uts_e_2.R;
-import com.example.tubes_uts_e_2.activity.OrderTicketActivity;
 import com.example.tubes_uts_e_2.activity.PayTicketActivity;
+import com.example.tubes_uts_e_2.api.ApiClient;
+import com.example.tubes_uts_e_2.api.ApiInterface;
+import com.example.tubes_uts_e_2.callback.CallBackInterface;
 import com.example.tubes_uts_e_2.model.Ticket;
-import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.model.TicketResponse;
 import com.example.tubes_uts_e_2.preferences.UserPreferences;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>{
 
-    private List<Ticket> ticketList;
+    private List<Ticket> ticketList,filtered;
     private Context context;
+    private ImageButton btnDelete;
+    public CallBackInterface callbackInterface;
+
+    private ApiInterface apiService;
 
     private UserPreferences userPreferences;
-    private User user;
+
+    public TicketAdapter(CallBackInterface callbackInterface){
+        this.callbackInterface = callbackInterface;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvUserTicket, tvJudul, tvTempat, tvTanggal, tvWaktu, tvJenisTiket, tvTotal;
         RelativeLayout rv_ticket_item;
         ImageButton btnDelete;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            apiService = ApiClient.getClient().create(ApiInterface.class);
 
             tvJudul = itemView.findViewById(R.id.inputJudul);
             tvTempat = itemView.findViewById(R.id.tempat);
@@ -62,6 +73,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
 
     public TicketAdapter(List<Ticket> ticketList, Context context) {
         this.ticketList = ticketList;
+        filtered = new ArrayList<>(ticketList);
         this.context = context;
         notifyDataSetChanged();
     }
@@ -75,8 +87,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Ticket ticket = ticketList.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Ticket ticket = filtered.get(position);
         holder.tvJudul.setText(ticket.getJudul());
         holder.tvTempat.setText(ticket.getTempat());
         holder.tvTanggal.setText(ticket.getTanggal());
@@ -99,10 +111,25 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Ticket ticket = ticketList.get(position);
+//                Ticket ticket = ticketList.get(position);
+//
+//                ticketList.remove(position);
+//                notifyItemRemoved(position);
 
-                ticketList.remove(position);
-                notifyItemRemoved(position);
+                MaterialAlertDialogBuilder materialAlertDialogBuilder =
+                        new MaterialAlertDialogBuilder(context);
+                materialAlertDialogBuilder.setTitle("Konfirmasi")
+                        .setMessage("Apakah anda yakin ingin menghapus data produk ini?")
+                        .setNegativeButton("Batal", null)
+                        .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context.getApplicationContext(), "HEHEHEHEH", Toast.LENGTH_SHORT).show();
+                                deleteTicket(ticket.getId());
+
+                            }
+                        })
+                        .show();
             }
         });
     }
@@ -110,6 +137,36 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return ticketList.size();
+    }
+
+    public void deleteTicket(int id) {
+        // TODO: Tambahkan fungsi untuk menghapus data buku.
+        Call<TicketResponse> call = apiService.deleteTicket(id);
+        call.enqueue(new Callback<TicketResponse>() {
+            @Override
+            public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+                if (response.isSuccessful() && response.body() != null){
+                    Toast.makeText(context.getApplicationContext(), "loh he", Toast.LENGTH_SHORT).show();
+                    callbackInterface.callBackMethod();
+                }else {
+                    try { JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(context.getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
+
+                    } catch (Exception e) {
+                        Toast.makeText(context.getApplicationContext(), "apa sih", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<TicketResponse> call, Throwable t) {
+                Toast.makeText(context.getApplicationContext(), "Network error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
 

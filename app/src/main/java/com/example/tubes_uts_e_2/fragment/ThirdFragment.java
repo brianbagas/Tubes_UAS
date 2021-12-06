@@ -1,6 +1,5 @@
 package com.example.tubes_uts_e_2.fragment;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,17 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
-import com.example.tubes_uts_e_2.activity.HomeActivity;
-import com.example.tubes_uts_e_2.activity.OrderTicketActivity;
 import com.example.tubes_uts_e_2.adapter.TicketAdapter;
 import com.example.tubes_uts_e_2.api.ApiClient;
 import com.example.tubes_uts_e_2.api.ApiInterface;
-import com.example.tubes_uts_e_2.db.DatabaseTicket;
+import com.example.tubes_uts_e_2.callback.CallBackInterface;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.TicketResponse;
 
@@ -40,12 +35,13 @@ import retrofit2.Response;
  * Use the {@link ThirdFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ThirdFragment extends Fragment {
+public class ThirdFragment extends Fragment implements CallBackInterface {
 
     private RecyclerView rv_ticket;
     private List<Ticket> ticketList;
     private TicketAdapter ticketAdapter;
     private ApiInterface apiService;
+    private long temp;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -102,7 +98,7 @@ public class ThirdFragment extends Fragment {
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
         getTickets();
-        //ticketList = new ArrayList<>();
+        ticketList = new ArrayList<>();
     }
 
     private void getTickets() {
@@ -113,10 +109,10 @@ public class ThirdFragment extends Fragment {
            if (response.isSuccessful()){
                ticketList = response.body().getTicketList();
                rv_ticket.setAdapter(new TicketAdapter(ticketList,getActivity()));
-                   Toast.makeText(getActivity(), response.body().getMessage(),Toast.LENGTH_SHORT).show();
-              }
-
-               else{
+                   Toast.makeText(getActivity(),
+                           response.body().getMessage(),
+                           Toast.LENGTH_SHORT).show();
+              } else{
                    try { JSONObject jObjError = new JSONObject(response.errorBody().string());
                        Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
                    }
@@ -128,7 +124,7 @@ public class ThirdFragment extends Fragment {
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
-                Toast.makeText(getActivity(),"Network Error",Toast.LENGTH_SHORT)
+                Toast.makeText(getActivity(),"Network Error 1",Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -156,36 +152,41 @@ public class ThirdFragment extends Fragment {
 //        get.execute();
     }
 
-//    private void deleteTicket(long id) {
-//        ImageButton buttonDelete = view.findViewById(R.id.btnDelete);
-//        buttonDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Call<TicketResponse> call = apiService.deleteTicket(id);
-//                call.enqueue(new Callback<TicketResponse>() {
-//                    @Override
-//                    public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
-//                        if (response.isSuccessful() && response.body() != null){
-//                            Toast.makeText(getActivity(), response.body().getMessage(),Toast.LENGTH_SHORT).show();
-//                            getTickets();
-//                        }
-//                        else {
-//                            try { JSONObject jObjError = new JSONObject(response.errorBody().string());
-//                                Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
-//                            }
-//                            catch (Exception e) {
-//                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<TicketResponse> call, Throwable t) {
-//                        Toast.makeText(getActivity(),"Network Error",Toast.LENGTH_SHORT)
-//                                .show();
-//                    }
-//                });
-//            }
-//        });
-//    }
+    public void deleteTicket(int id) {
+        // TODO: Tambahkan fungsi untuk menghapus data buku.
+        Call<TicketResponse> call = apiService.deleteTicket(id);
+        call.enqueue(new Callback<TicketResponse>() {
+            @Override
+            public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+                if (response.isSuccessful() && response.body() != null){
+                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    getTickets();
+                }else {
+                    try { JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(getActivity(),
+                                jObjError.getString("message"),
+                                Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<TicketResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Network error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+    @Override
+    public void callBackMethod() {
+
+        getTickets();
+    }
 }

@@ -35,6 +35,6 @@ public interface ApiInterface {
 
     @Headers({"Accept: application/json"})
     @DELETE("ticket/{id}")
-    Call<TicketResponse> deleteTicket(@Path("id") long id);
+    Call<TicketResponse> deleteTicket(@Path("id") int id);
 
 }
