@@ -55,14 +55,10 @@ public class EditActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnSaveEdit = findViewById(R.id.btnSaveEdit);
-        pp = findViewById(R.id.iv_gambar);
         userList = getUser(userPreferences.getUserLogin().getUsername());
         etNama.setText(userList.get(0).getNama());
         etEmail.setText(userList.get(0).getEmail());
         etUsername.setText(userList.get(0).getUsername());
-
-
-        btnCam = findViewById(R.id.btnCam);
 
         userPreferences = new UserPreferences(this);
         builder=new AlertDialog.Builder(EditActivity.this);
