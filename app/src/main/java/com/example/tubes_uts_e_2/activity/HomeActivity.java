@@ -20,8 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
-    ImageView btnProfil;
-
+    ImageView btnProfil, btnScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +35,19 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView = findViewById(R.id.bottomnavigationbar);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         btnProfil = findViewById(R.id.btnProfil);
+        btnScan = findViewById(R.id.btnScanQRTicket);
         btnProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent profilActivity = new Intent(HomeActivity.this, ProfilActivity.class);
                 startActivity(profilActivity);
+            }
+        });
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent qrActivity = new Intent(HomeActivity.this, ConfirmQRResultActivity.class);
+                startActivity(qrActivity);
             }
         });
     }
