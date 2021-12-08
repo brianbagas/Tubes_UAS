@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TUBES_UTS_E_2">
         <activity
+            android:name=".activity.QRScannerActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.EditActivity"
             android:exported="false" />
         <activity
