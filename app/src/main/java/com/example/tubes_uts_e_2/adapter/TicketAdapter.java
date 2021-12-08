@@ -129,7 +129,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                         .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(context.getApplicationContext(), "HEHEHEHEH", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context.getApplicationContext(), "HAOUS TICKET BERHASIL", Toast.LENGTH_SHORT).show();
                                 deleteTicket(ticket.getId());
 
                             }

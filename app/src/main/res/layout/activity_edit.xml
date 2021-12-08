@@ -46,7 +46,7 @@
                 android:backgroundTint="#1B1C51" />
         </RelativeLayout>
 
-        <TextView
+        <EditText
             android:id="@+id/tvProfilNama"
             android:layout_width="245dp"
             android:layout_height="38dp"
@@ -60,7 +60,7 @@
             android:textAlignment="center"
             android:textColor="@color/black" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvProfilEmail"
             android:layout_width="245dp"
             android:layout_height="38dp"

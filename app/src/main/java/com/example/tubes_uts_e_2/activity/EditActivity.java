@@ -50,35 +50,35 @@ public class EditActivity extends AppCompatActivity {
 
         userPreferences = new UserPreferences(this);
 
-        etNama = findViewById(R.id.etNama);
-        etUsername = findViewById(R.id.etUsername);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
+        etNama = findViewById(R.id.tvProfilNama);
+        //etUsername = findViewById(R.id.tvProfilEmail);
+        etEmail = findViewById(R.id.tvProfilEmail);
+      //  etPassword = findViewById(R.id.etPassword);
         btnSaveEdit = findViewById(R.id.btnSaveEdit);
         userList = getUser(userPreferences.getUserLogin().getUsername());
         etNama.setText(userList.get(0).getNama());
         etEmail.setText(userList.get(0).getEmail());
-        etUsername.setText(userList.get(0).getUsername());
+       // etUsername.setText(userList.get(0).getUsername());
 
         userPreferences = new UserPreferences(this);
         builder=new AlertDialog.Builder(EditActivity.this);
 
 
-        btnCam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkSelfPermission(Manifest.permission.CAMERA) ==
-                        PackageManager.PERMISSION_DENIED) {
-                    String[] permission = {Manifest.permission.CAMERA};
-                    requestPermissions(permission, PERMISSION_REQUEST_CAMERA);
-                } else {
-                    // Membuka kamera
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(intent, CAMERA_REQUEST);
-                }
-
-            }
-        });
+//        btnCam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (checkSelfPermission(Manifest.permission.CAMERA) ==
+//                        PackageManager.PERMISSION_DENIED) {
+//                    String[] permission = {Manifest.permission.CAMERA};
+//                    requestPermissions(permission, PERMISSION_REQUEST_CAMERA);
+//                } else {
+//                    // Membuka kamera
+//                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                    startActivityForResult(intent, CAMERA_REQUEST);
+//                }
+//
+//            }
+//        });
 
         btnSaveEdit.setOnClickListener(new View.OnClickListener() {
             @Override
