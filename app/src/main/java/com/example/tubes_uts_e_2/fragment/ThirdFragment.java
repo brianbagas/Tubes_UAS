@@ -16,12 +16,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.tubes_uts_e_2.R;
+import com.example.tubes_uts_e_2.activity.HomeActivity;
 import com.example.tubes_uts_e_2.adapter.TicketAdapter;
 import com.example.tubes_uts_e_2.api.ApiClient;
 import com.example.tubes_uts_e_2.api.ApiInterface;
 import com.example.tubes_uts_e_2.callback.CallBackInterface;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.TicketResponse;
+import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
 
 import org.json.JSONObject;
 
@@ -54,6 +57,10 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    UserPreferences userPreferences;
+    User user;
+    String username;
 
     public ThirdFragment() {
         // Required empty public constructor
@@ -100,9 +107,13 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
 //        layoutLoading = view.findViewById(R.id.layout_loading);
 
         rv_ticket = view.findViewById(R.id.ticket_list);
-        rv_ticket.setLayoutManager(new LinearLayoutManager(getActivity()));
-        getTickets();
+        rv_ticket.setLayoutManager(new LinearLayoutManager(getContext()));
         ticketList = new ArrayList<>();
+
+        userPreferences = new UserPreferences(getContext());
+        user = userPreferences.getUserLogin();
+        username = user.getUsername();
+        getUserTickets(username);
     }
 
     private void getTickets() {
@@ -133,6 +144,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
                         .show();
             }
         });
+    }
 
 //        class GetTickets extends AsyncTask<Void, Void, List<Ticket>> {
 //
@@ -155,6 +167,34 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
 //        }
 //        GetTickets get = new GetTickets();
 //        get.execute();
+
+    private void getUserTickets(String user) {
+        Call<TicketResponse> call = apiService.getTicketByUser(user);
+        call.enqueue(new Callback<TicketResponse>() {
+            @Override
+            public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+                if (response.isSuccessful()) {
+                    ticketList = response.body().getTicketList();
+                    rv_ticket.setAdapter(new TicketAdapter(ticketList, getActivity()));
+                    Toast.makeText(getActivity(),
+                            response.body().getMessage(),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TicketResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Network Error 1", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
     public void deleteTicket(int id) {

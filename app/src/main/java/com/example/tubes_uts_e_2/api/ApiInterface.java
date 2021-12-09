@@ -23,7 +23,7 @@ public interface ApiInterface {
 
     @Headers({"Accept: application/json"})
     @GET("ticket/user/{user}")
-    Call<TicketResponse> getTicketByUser(@Path("user") long id);
+    Call<TicketResponse> getTicketByUser(@Path("user") String user);
 
     @Headers({"Accept: application/json"})
     @POST("ticket")
