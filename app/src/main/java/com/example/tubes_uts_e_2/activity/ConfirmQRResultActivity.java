@@ -19,6 +19,8 @@ import com.example.tubes_uts_e_2.api.ApiClient;
 import com.example.tubes_uts_e_2.api.ApiInterface;
 import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.TicketResponse;
+import com.example.tubes_uts_e_2.model.User;
+import com.example.tubes_uts_e_2.preferences.UserPreferences;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -34,6 +36,9 @@ public class ConfirmQRResultActivity extends AppCompatActivity {
 
     Ticket ticket;
     ApiInterface apiService;
+
+    UserPreferences userPreferences;
+    User user;
 
     private final ActivityResultLauncher<Intent> cameraResult =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -58,6 +63,9 @@ public class ConfirmQRResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_qrresult);
         getSupportActionBar().hide();
+
+        userPreferences = new UserPreferences(this);
+        user = userPreferences.getUserLogin();
 
         txtQRUsername = findViewById(R.id.txtQRUsername);
         txtQRJudul = findViewById(R.id.txtQRJudul);
@@ -94,6 +102,7 @@ public class ConfirmQRResultActivity extends AppCompatActivity {
     public void setQRResult(String result) {
         Gson gson = new Gson();
         ticket = gson.fromJson(result, Ticket.class);
+        ticket.setUser(user.getUsername());
 
         txtQRUsername.setText(ticket.getUser());
         txtQRJudul.setText(ticket.getJudul());
