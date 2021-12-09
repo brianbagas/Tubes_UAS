@@ -129,7 +129,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                         .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(context.getApplicationContext(), "HAOUS TICKET BERHASIL", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context.getApplicationContext(), "Hapus Ticket Berhasil", Toast.LENGTH_SHORT).show();
                                 deleteTicket(ticket.getId());
 
                             }
@@ -152,7 +152,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             @Override
             public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
                 if (response.isSuccessful() && response.body() != null){
-                    Toast.makeText(context.getApplicationContext(), "loh he", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context.getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     callbackInterface.callBackMethod();
                 }
                 else {
@@ -160,7 +160,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                         Toast.makeText(context.getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_SHORT).show();
 
                     } catch (Exception e) {
-                        Toast.makeText(context.getApplicationContext(), "apa sih", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context.getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
 //                setLoading(false);
@@ -168,7 +168,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
-                Toast.makeText(context.getApplicationContext(), "Network error", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context.getApplicationContext(), "Network error", Toast.LENGTH_SHORT).show();
 //                setLoading(false);
             }
         });

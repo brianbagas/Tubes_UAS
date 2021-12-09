@@ -176,13 +176,13 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
                         Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
-                setLoading(false);
+//                setLoading(false);
             }
 
             @Override
             public void onFailure(Call<TicketResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Network error", Toast.LENGTH_SHORT).show();
-                setLoading(false);
+//                setLoading(false);
             }
         });
     }
@@ -193,14 +193,14 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
         getTickets();
     }
 
-    private void setLoading(boolean isLoading) {
-        if (isLoading) {
-            getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-            layoutLoading.setVisibility(View.VISIBLE);
-        } else {
-            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-            layoutLoading.setVisibility(View.GONE);
-        }
-    }
+//    private void setLoading(boolean isLoading) {
+//        if (isLoading) {
+//            getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+//                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+//            layoutLoading.setVisibility(View.VISIBLE);
+//        } else {
+//            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+//            layoutLoading.setVisibility(View.GONE);
+//        }
+//    }
 }
