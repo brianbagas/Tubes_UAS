@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/md_grey_400"
     android:paddingTop="50dp"
     android:paddingHorizontal="20dp">
 
@@ -16,6 +15,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="32sp"
+        android:textColor="#1B1C51"
         android:layout_marginBottom="10dp"
         />
 
@@ -32,7 +32,7 @@
             android:layout_height="match_parent"
             android:clickable="false"
             android:enabled="false"
-            android:hint="Username" />
+            android:hint="Username"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -136,12 +136,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="SCAN QR" />
+        android:text="SCAN QR"
+        android:backgroundTint="#1B1C51" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSubmitQRActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:backgroundTint="#59CD59"
-        android:text="Pesan Tiket" />
+        android:text="Pesan Tiket"
+        android:textColor="#1B1C51"/>
 </LinearLayout>

@@ -85,10 +85,10 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String nama = etNama.getText().toString();
                 String email = etEmail.getText().toString();
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
+//                String username = etUsername.getText().toString();
+//                String password = etPassword.getText().toString();
                 if(cekKosong()) {
-                    temp = new User(0, nama, email, username, password, null);
+                    temp = new User(nama, email);
                     AddUser(temp);
                     Intent profilActivity = new Intent(EditActivity.this, ProfilActivity.class);
                     profilActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -110,47 +110,47 @@ public class EditActivity extends AppCompatActivity {
         return userList;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (data == null)
+//            return;
+//
+//        if (resultCode == RESULT_OK && requestCode == GALLERY_PICTURE) {
+//            Uri selectedImage = data.getData();
+//
+//            try {
+//                InputStream inputStream = getContentResolver().openInputStream(selectedImage);
+//                bitmap = BitmapFactory.decodeStream(inputStream);
+//            } catch (Exception e) {
+//                Toast.makeText(EditActivity.this, e.getMessage(),
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        } else if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST) {
+//            bitmap = (Bitmap) data.getExtras().get("data");
+//        }
+//
+//        bitmap = getResizedBitmap(bitmap, 512);
+//        pp.setImageBitmap(bitmap);
+//    }
 
-        if (data == null)
-            return;
-
-        if (resultCode == RESULT_OK && requestCode == GALLERY_PICTURE) {
-            Uri selectedImage = data.getData();
-
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(selectedImage);
-                bitmap = BitmapFactory.decodeStream(inputStream);
-            } catch (Exception e) {
-                Toast.makeText(EditActivity.this, e.getMessage(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        } else if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST) {
-            bitmap = (Bitmap) data.getExtras().get("data");
-        }
-
-        bitmap = getResizedBitmap(bitmap, 512);
-        pp.setImageBitmap(bitmap);
-    }
-
-    private Bitmap getResizedBitmap(Bitmap bitmap, int maxSize) {
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-
-        float bitmapRatio = (float) width / (float) height;
-
-        if (bitmapRatio > 1) {
-            width = maxSize;
-            height = (int) (width / bitmapRatio);
-        } else {
-            height = maxSize;
-            width = (int) (height * bitmapRatio);
-        }
-
-        return Bitmap.createScaledBitmap(bitmap, width, height, true);
-    }
+//    private Bitmap getResizedBitmap(Bitmap bitmap, int maxSize) {
+//        int width = bitmap.getWidth();
+//        int height = bitmap.getHeight();
+//
+//        float bitmapRatio = (float) width / (float) height;
+//
+//        if (bitmapRatio > 1) {
+//            width = maxSize;
+//            height = (int) (width / bitmapRatio);
+//        } else {
+//            height = maxSize;
+//            width = (int) (height * bitmapRatio);
+//        }
+//
+//        return Bitmap.createScaledBitmap(bitmap, width, height, true);
+//    }
 
     private void AddUser(User temp) {
         class addUser extends AsyncTask<Void, Void, Void> {
@@ -160,9 +160,9 @@ public class EditActivity extends AppCompatActivity {
                 User user = new User();
                 user.setNama(temp.getNama());
                 user.setEmail(temp.getEmail());
-                user.setUsername(temp.getUsername());
-                user.setPassword(temp.getPassword());
-                user.setImgURL(temp.getImgURL());
+//                user.setUsername(temp.getUsername());
+//                user.setPassword(temp.getPassword());
+//                user.setImgURL(temp.getImgURL());
 
                 DatabaseUser.getInstance(EditActivity.this)
                         .getDatabase()
@@ -183,7 +183,7 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private boolean cekKosong() {
-        if(etNama.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty()){
+        if(etNama.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty() ){
             return false;
         } else {
             return true;
