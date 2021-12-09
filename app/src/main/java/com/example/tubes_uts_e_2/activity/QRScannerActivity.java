@@ -44,8 +44,8 @@ public class QRScannerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrscanner);
-        setupPermission();
         scannerView = findViewById(R.id.scannerView);
+        setupPermission();
     }
 
     private void setupPermission() {
@@ -58,8 +58,7 @@ public class QRScannerActivity extends AppCompatActivity {
             showDialogOK("Camera Services Permission required for this app",
                     new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which)
-                        {
+                        public void onClick(DialogInterface dialog, int which) {
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
                                     Intent intent = new Intent();
