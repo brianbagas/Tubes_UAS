@@ -26,7 +26,7 @@ import com.example.tubes_uts_e_2.model.Ticket;
 import com.example.tubes_uts_e_2.model.TicketResponse;
 import com.example.tubes_uts_e_2.model.User;
 import com.example.tubes_uts_e_2.preferences.UserPreferences;
-import com.facebook.shimmer.ShimmerFrameLayout;
+// import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONObject;
 
@@ -43,7 +43,7 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class ThirdFragment extends Fragment implements CallBackInterface {
-    private ShimmerFrameLayout layout;
+//    private ShimmerFrameLayout layout;
     private RecyclerView rv_ticket;
     private List<Ticket> ticketList;
     private TicketAdapter ticketAdapter;
@@ -107,7 +107,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
     //    layoutLoading = view.findViewById(R.id.layout_loading);
-        layout = view.findViewById(R.id.shimer);
+//        layout = view.findViewById(R.id.shimer);
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getContext()));
         ticketList = new ArrayList<>();
@@ -117,17 +117,17 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
         username = user.getUsername();
         getUserTickets(username);
 
-                handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layout.stopShimmer();
-                layout.hideShimmer();
-                layout.setVisibility(View.GONE);
-
-
-                rv_ticket.setVisibility(View.VISIBLE);
-            }
-        },8000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                layout.stopShimmer();
+//                layout.hideShimmer();
+//                layout.setVisibility(View.GONE);
+//
+//
+//                rv_ticket.setVisibility(View.VISIBLE);
+//            }
+//        },8000);
     }
 
     private void getTickets() {
