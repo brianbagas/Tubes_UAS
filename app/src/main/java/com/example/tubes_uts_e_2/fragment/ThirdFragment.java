@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
     private ApiInterface apiService;
     private LinearLayout layoutLoading;
     private long temp;
-
+    private Handler handler = new Handler();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -105,7 +106,7 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
         super.onViewCreated(view, savedInstanceState);
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
-//        layoutLoading = view.findViewById(R.id.layout_loading);
+    //    layoutLoading = view.findViewById(R.id.layout_loading);
         layout = view.findViewById(R.id.shimer);
         rv_ticket = view.findViewById(R.id.ticket_list);
         rv_ticket.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -116,17 +117,17 @@ public class ThirdFragment extends Fragment implements CallBackInterface {
         username = user.getUsername();
         getUserTickets(username);
 
-        //        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                layout.stopShimmer();
-//                layout.hideShimmer();
-//                layout.setVisibility(View.GONE);
-//
-//
-//                rv_ticket.setVisibility(View.VISIBLE);
-//            }
-//        },8000);
+                handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                layout.stopShimmer();
+                layout.hideShimmer();
+                layout.setVisibility(View.GONE);
+
+
+                rv_ticket.setVisibility(View.VISIBLE);
+            }
+        },8000);
     }
 
     private void getTickets() {
