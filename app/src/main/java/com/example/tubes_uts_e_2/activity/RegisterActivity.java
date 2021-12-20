@@ -41,13 +41,28 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-                if(cekKosong()) {
+                if(cekKosong() == 0) {
                     temp = new User(0, nama, email, username, password, null);
                     AddUser(temp);
                     Intent loginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
                     loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(loginActivity);
                     finish();
+                } else {
+                    switch(cekKosong()) {
+                        case 1 :
+                            Toast.makeText(RegisterActivity.this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 2 :
+                            Toast.makeText(RegisterActivity.this, "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 3 :
+                            Toast.makeText(RegisterActivity.this, "Username tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 4 :
+                            Toast.makeText(RegisterActivity.this, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
                 }
             }
         });
@@ -82,11 +97,17 @@ public class RegisterActivity extends AppCompatActivity {
         add.execute();
     }
 
-    private boolean cekKosong() {
-        if(etNama.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty()){
-            return false;
+    private int cekKosong() {
+        if (etNama.getText().toString().isEmpty()) {
+            return 1;
+        } else if (etEmail.getText().toString().isEmpty()) {
+            return 2;
+        } else if (etUsername.getText().toString().isEmpty()) {
+            return 3;
+        } else if (etPassword.getText().toString().isEmpty()) {
+            return 4;
         } else {
-            return true;
+            return 0;
         }
     }
 }
